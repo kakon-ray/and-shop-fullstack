@@ -1,44 +1,94 @@
-import React, { useEffect, useState } from 'react';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { useDispatch, useSelector } from "react-redux";
-import {getCartList} from "../../redux/action/CartListAction";
-import { all } from 'axios';
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCodeCompare } from "@fortawesome/free-solid-svg-icons";
+import { faDashboard } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faSign } from "@fortawesome/free-solid-svg-icons";
+import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { Link } from '@inertiajs/react'
-
+import "./TopNav.css";
 const TopNav = () => {
-  const dispatch = useDispatch();
-
-  const allcart = useSelector(
-    (state) => state.product.cart
-  );
-
-  useEffect(() => {
-    let data = JSON.parse(localStorage.getItem('cart'));
-    if (data) {
-      dispatch(getCartList(data));
-    }
-
-  }, []);
 
   return (
-    <div>
-      <Navbar expand="lg" className="bg-body-tertiary">
-        <Container>
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Link className="nav-link" href="/">Home</Link>
-              <Link className="nav-link" href="/add-new-laptop">Add To Product</Link>
-              <Link className="nav-link" href="/cart">Cart {allcart.length}</Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </div>
+    <>
+      <div className="topnav">
+        <div className="container-fluid">
+          <div
+            className={`d-flex justify-content-md-between  align-items-center flex-wrap topNavContent`}
+          >
+            <div
+              className={`align-self-center justify-content-center topnavText`}
+            >
+              <p className="my-0 text-center ">
+                Special collection already available
+                <span className="readmore">Read More...</span>
+              </p>
+            </div>
+            <div className="topnav-list">
+              <ul className="d-flex flex-wrap align-self-center justify-content-center my-0 ps-0">
+                <li>
+                  <Link to="/compare">
+                    <button
+                      className="mx-3 my-2 top-btn"
+                      style={{
+                        padding: "0",
+                        border: "none",
+                        background: "none",
+                      }}
+                    >
+                      <FontAwesomeIcon icon={faCodeCompare} className="me-1" />
+                      compare
+                    </button>
+                  </Link>
+                </li>
+                <li>
+                  <button
+                    className="mx-3 my-2 top-btn"
+                    style={{
+                      padding: "0",
+                      border: "none",
+                      background: "none",
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faDashboard} className="me-1" />
+                    Dashboard
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="mx-3 my-2 "
+                    style={{ padding: "0", border: "none", background: "none" }}
+                  >
+                    <FontAwesomeIcon icon={faUser} className="me-1" />
+                    Profile
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="mx-3 my-2 "
+                    style={{ padding: "0", border: "none", background: "none" }}
+                  >
+                    <FontAwesomeIcon icon={faSign} className="me-1" />
+                    Login
+                  </button>
+                </li>
+
+                <li>
+                  <button
+                    className="mx-3 my-2 "
+                    style={{ padding: "0", border: "none", background: "none" }}
+                  >
+                    <FontAwesomeIcon icon={faLock} className="me-1" />
+                    Register
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </>
   );
 };
 

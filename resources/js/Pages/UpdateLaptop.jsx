@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import TopNav from '../component/Navbar/TopNav';
+import HeaderNav from '../component/Navbar/HeaderNav';
 import { useForm } from '@inertiajs/react'
 import Swal from 'sweetalert2';
 import { Inertia } from '@inertiajs/inertia'
@@ -34,7 +34,7 @@ const UpdateLaptop = ({laptop}) => {
 
     return (
         <>
-            <TopNav />
+            <HeaderNav />
 
             <div className="container">
                 <div className="row mt-4">

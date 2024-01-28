@@ -1,6 +1,6 @@
 import { Inertia } from '@inertiajs/inertia'
 import React, { useEffect, useState } from 'react';
-import TopNav from '../component/Navbar/TopNav';
+import HeaderNav from '../component/Navbar/HeaderNav';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useForm } from '@inertiajs/react'
@@ -57,7 +57,7 @@ const AddNewLaptop = ({ success, error }) => {
 
     return (
         <>
-            <TopNav />
+            <HeaderNav />
 
             <div className="container">
                 <div className="row mt-4">

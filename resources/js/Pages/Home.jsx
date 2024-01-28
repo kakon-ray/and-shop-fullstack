@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import TopNav from '../component/Navbar/TopNav';
 import { Table } from 'react-bootstrap';
 import '../css/home.css'
 import { Inertia } from '@inertiajs/inertia'
@@ -9,6 +8,10 @@ import { deleteProduct, getProduct,updateProduct } from "../redux/action/Product
 import { postCartList, update_cartqunatity } from "../redux/action/CartListAction";
 import { Link } from '@inertiajs/react'
 import Swal from 'sweetalert2';
+import HeaderNav from '../component/Navbar/HeaderNav';
+import TopNav from '../component/Navbar/TopNav';
+import PageBanner from '../component/PageBanner/PageBanner';
+
 
 const Home = ({success, error, allLaptop }) => {
 
@@ -74,13 +77,15 @@ const deleteHandeler = (removeId) => {
     return (
         <>
             <TopNav />
+            <HeaderNav />
+            <PageBanner />
 
             <div className="container">
                 <div className="row mt-2">
                     <div className="col-lg-12">
                         <h2 className='text-center py-4'>Our Laptop</h2>
                     </div>
-                    <div className="col-lg-12">
+                    <div className="col-lg-12 table-responsive-sm">
                         <Table striped bordered hover className='text-center'>
                             <thead>
                                 <tr>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import TopNav from '../component/Navbar/TopNav';
+import HeaderNav from '../component/Navbar/HeaderNav';
 import { Table } from 'react-bootstrap';
 import '../css/home.css'
 import { Inertia } from '@inertiajs/inertia'
@@ -27,7 +27,7 @@ const Home = ({ allLaptop }) => {
 
     return (
         <>
-            <TopNav />
+            <HeaderNav />
 
             <div className="container">
                 <div className="row mt-2">
