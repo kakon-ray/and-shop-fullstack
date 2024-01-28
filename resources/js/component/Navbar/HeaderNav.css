@@ -86,8 +86,11 @@
 
 .navbar-collapse {
   top: 55px !important;
+  flex-basis: 100%;
+  padding: 20px 0;
+  flex-grow: 1;
+  align-items: center;
 }
-
 .navbar-toggler,
 .navbar-toggler:focus,
 .navbar-toggler:active,
