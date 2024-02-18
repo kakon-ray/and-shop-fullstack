@@ -10685,6 +10685,7 @@ a:focus {
   border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+
 .sidebar-dark .sidebar-heading {
   color: rgba(255, 255, 255, 0.4);
 }
@@ -11264,6 +11265,7 @@ form.user .btn-user {
   overflow: hidden;
   clip: rect(0, 900px, 0, 0);
   animation: noise-anim-2 3s infinite linear alternate-reverse;
+  -webkit-animation: noise-anim-2 3s infinite linear alternate-reverse;
 }
 
 footer.sticky-footer {
@@ -11278,4 +11280,18 @@ footer.sticky-footer .copyright {
 
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
+}
+
+
+.active, .hot-menue:hover {
+  border-bottom: none !important; 
+
+}
+
+.dropdown .badge {
+  background-color: var(--blue) !important;
+  font-size: 14px;
+  font-weight: 400;
+  right: -4px !important;
+  margin-top: 1px !important;
 }
