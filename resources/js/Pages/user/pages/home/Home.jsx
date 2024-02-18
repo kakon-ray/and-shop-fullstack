@@ -10,6 +10,9 @@ import PageBanner from '../../component/PageBanner/PageBanner';
 import Footer from '../../component/Footer/Footer';
 import NewCollection from '../../component/NewCollection/NewCollection';
 import Product from '../../component/Product/Product';
+import OffCollection from '../../component/OffCollection/OffCollection';
+import SlickCollection from '../../component/SlickCollection/SlickCollection';
+import NewFashon from '../../component/NewFashon/NewFashon';
 
 
 const Home = () => {
@@ -21,6 +24,9 @@ const Home = () => {
             <PageBanner />
             <NewCollection/>
             <Product/>
+            <OffCollection/>
+            <SlickCollection/>
+            <NewFashon/>
             <Footer />
         </>
     );
