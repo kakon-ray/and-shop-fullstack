@@ -13,6 +13,8 @@ import Product from '../../component/Product/Product';
 import OffCollection from '../../component/OffCollection/OffCollection';
 import SlickCollection from '../../component/SlickCollection/SlickCollection';
 import NewFashon from '../../component/NewFashon/NewFashon';
+import LatestBlog from '../../component/LatestBlog/LatestBlog';
+import FollowUs from '../../component/FollowUs/FollowUs';
 
 
 const Home = () => {
@@ -27,6 +29,8 @@ const Home = () => {
             <OffCollection/>
             <SlickCollection/>
             <NewFashon/>
+            <LatestBlog/>
+            <FollowUs/>
             <Footer />
         </>
     );
