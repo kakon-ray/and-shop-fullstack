@@ -20,38 +20,38 @@ const Footer = () => {
    
     return <>
         <footer id="footer_one">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-12 col-sm-12 col-12">
-                        <div class="footer_left_side">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-4 col-md-12 col-sm-12 col-12">
+                        <div className="footer_left_side">
                             <a href="#!"><img src={logo} alt="logo" /></a>
                             <p>
                                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati culpa assumenda voluptas
                                 placeat amet consectetur adipisicing elit. Obcaecati culpa assumenda voluptas placeat.
                             </p>
-                            <div class="footer_left_side_icon">
+                            <div className="footer_left_side_icon">
                                 <ul>
                                     <li>
-                                        <a href="#!"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#!"><i className="fab fa-facebook-f"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#!"><i class="fab fa-twitter"></i></a>
+                                        <a href="#!"><i className="fab fa-twitter"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#!"><i class="fab fa-linkedin"></i></a>
+                                        <a href="#!"><i className="fab fa-linkedin"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#!"><i class="fab fa-instagram"></i></a>
+                                        <a href="#!"><i className="fab fa-instagram"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#!"><i class="fab fa-google-plus-g"></i></a>
+                                        <a href="#!"><i className="fab fa-google-plus-g"></i></a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-                        <div class="footer_one_widget">
+                    <div className="col-lg-3 col-md-6 col-sm-12 col-12">
+                        <div className="footer_one_widget">
                             <h3>INFORMATION</h3>
                             <ul>
                                 <li><a href="index.html">Home</a></li>
@@ -63,8 +63,8 @@ const Footer = () => {
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-6 col-sm-12 col-12">
-                        <div class="footer_one_widget">
+                    <div className="col-lg-2 col-md-6 col-sm-12 col-12">
+                        <div className="footer_one_widget">
                             <h3>Your Account</h3>
                             <ul>
                                 <li><a href="cart.html">Cart View One</a></li>
@@ -74,15 +74,15 @@ const Footer = () => {
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-12 col-sm-12 col-12">
-                        <div class="footer_one_widget">
+                    <div className="col-lg-3 col-md-12 col-sm-12 col-12">
+                        <div className="footer_one_widget">
                             <h3>NEWSLETTER</h3>
-                            <div id="mc_embed_signup" class="subscribe-form">
+                            <div id="mc_embed_signup" className="subscribe-form">
                                 <form>
-                                    <div class="mc-form">
-                                        <input class="form-control" type="email" required="" placeholder="Your Mail*"
+                                    <div className="mc-form">
+                                        <input className="form-control" type="email" required="" placeholder="Your Mail*"
                                             name="EMAIL" value="" />
-                                        <div class="clear">
+                                        <div className="clear">
                                             <Button variant="outline-secondary" id="button-addon2">
                                                 Send Mail
                                             </Button>
@@ -97,17 +97,17 @@ const Footer = () => {
         </footer>
 
         <section id="copyright_one">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                        <div class="copyright_left">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-6 col-md-6 col-sm-6 col-12">
+                        <div className="copyright_left">
                             <h6>© CopyRight 2022
                                 <span>AndShop</span>
                             </h6>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                        <div class="copyright_right">
+                    <div className="col-lg-6 col-md-6 col-sm-6 col-12">
+                        <div className="copyright_right">
                             <img src={pement} alt="img" />
                         </div>
                     </div>
@@ -115,11 +115,11 @@ const Footer = () => {
             </div>
         </section>
 
-        <div class="cookie-bar">
+        <div className="cookie-bar">
             <p className='pb-0 mb-0'>We use cookies to improve our site and your shopping experience. By continuing to browse our site you accept
                 our cookie policy.</p>
-            <a href="javascript:void(0)" class="btn btn-dark">Accept</a>
-            <a href="javascript:void(0)" class="btn btn-dark">Decline</a>
+            <a href="javascript:void(0)" className="btn btn-dark">Accept</a>
+            <a href="javascript:void(0)" className="btn btn-dark">Decline</a>
         </div>
 
     </>;
