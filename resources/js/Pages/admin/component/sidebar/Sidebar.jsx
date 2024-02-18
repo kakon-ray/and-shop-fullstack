@@ -2,43 +2,43 @@ import React from 'react';
 
 const Sidebar = () => {
     return <>
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+            <a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div className="sidebar-brand-icon rotate-n-15">
+                    <i className="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div className="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
             </a>
 
-            <hr class="sidebar-divider my-0" />
+            <hr className="sidebar-divider my-0" />
 
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+            <li className="nav-item active">
+                <a className="nav-link" href="index.html">
+                    <i className="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
 
 
-            <hr class="sidebar-divider my-0" />
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            <hr className="sidebar-divider my-0" />
+            <li className="nav-item">
+                <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i className="fas fa-fw fa-cog"></i>
                     <span>Components</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div className="bg-white py-2 collapse-inner rounded">
+                        <h6 className="collapse-header">Custom Components:</h6>
+                        <a className="collapse-item" href="buttons.html">Buttons</a>
+                        <a className="collapse-item" href="cards.html">Cards</a>
                     </div>
                 </div>
             </li>
-            <hr class="sidebar-divider my-0" />
+            <hr className="sidebar-divider my-0" />
 
-            <div class="text-center d-none d-md-inline pt-4">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            <div className="text-center d-none d-md-inline pt-4">
+                <button className="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
         </ul>

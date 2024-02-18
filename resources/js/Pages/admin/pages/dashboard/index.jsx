@@ -18,13 +18,13 @@ const index = () => {
 
             <Sidebar />
 
-            <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content-wrapper" className="d-flex flex-column">
                 
                 <div id="content">
 
                     <Navbar />
 
-                    <div class="container-fluid">
+                    <div className="container-fluid">
 
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio voluptatum saepe aliquam recusandae, vel reprehenderit illo aspernatur odit tempore quia perferendis deserunt minus quasi ipsam placeat cum explicabo ad ab, velit doloremque excepturi neque dolorem! Dolores, tempora voluptates quibusdam labore praesentium hic minima explicabo adipisci aspernatur assumenda? Numquam deserunt unde maxime necessitatibus repudiandae, recusandae porro quo nostrum. Dolores fugit aliquam excepturi optio nobis ipsa facere, rerum officia pariatur eius ipsum quia consectetur cupiditate earum quae quas ab vero hic cum impedit voluptates culpa quis tenetur debitis? Consequatur perferendis, cum mollitia nisi optio dignissimos nobis iure iste natus doloremque et corrupti?</p>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio voluptatum saepe aliquam recusandae, vel reprehenderit illo aspernatur odit tempore quia perferendis deserunt minus quasi ipsam placeat cum explicabo ad ab, velit doloremque excepturi neque dolorem! Dolores, tempora voluptates quibusdam labore praesentium hic minima explicabo adipisci aspernatur assumenda? Numquam deserunt unde maxime necessitatibus repudiandae, recusandae porro quo nostrum. Dolores fugit aliquam excepturi optio nobis ipsa facere, rerum officia pariatur eius ipsum quia consectetur cupiditate earum quae quas ab vero hic cum impedit voluptates culpa quis tenetur debitis? Consequatur perferendis, cum mollitia nisi optio dignissimos nobis iure iste natus doloremque et corrupti?</p>
@@ -36,9 +36,9 @@ const index = () => {
 
                 </div>
 
-                <footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
-                        <div class="copyright text-center my-auto">
+                <footer className="sticky-footer bg-white">
+                    <div className="container my-auto">
+                        <div className="copyright text-center my-auto">
                             <span>Copyright &copy; Your Website 2021</span>
                         </div>
                     </div>
@@ -46,8 +46,8 @@ const index = () => {
             </div>
 
             {/* <!-- Scroll to Top Button--> */}
-            <a class="scroll-to-top rounded" href="#page-top">
-                <i class="fas fa-angle-up"></i>
+            <a className="scroll-to-top rounded" href="#page-top">
+                <i className="fas fa-angle-up"></i>
             </a>
         </div>
     </div>;
