@@ -44,7 +44,7 @@ const HeaderNav = () => {
               <Link href="/about" className="nav-link">
                 About Us
               </Link>
-              <Link href="/shop" className="nav-link">
+              <Link href="/blog" className="nav-link">
                 Blog
               </Link>
               <Link href="/shop" className="nav-link">
