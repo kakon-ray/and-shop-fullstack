@@ -13,7 +13,7 @@ const ShopCard = ({ position, title, price, img, img1, item }) => {
   return (
     <div className="col-md-3" id="shop-card">
       <Card className="card-container">
-        <div className="img-container">
+        <div className="img-container thum">
           <img src={img} className="img-fluid" />
 
           <img src={img1} className="upper-image img-fluid" />

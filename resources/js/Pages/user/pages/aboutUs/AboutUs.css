@@ -1,0 +1,57 @@
+
+/* ---------------------------------
+     About Page 
+-------------------------------------*/
+#about-top{
+  padding: 40px 0px;
+}
+.about_top_img img {
+  height: 500px;
+  width: 100%;
+}
+  
+  .about_top_left_content h2 {
+    text-transform: uppercase;
+  }
+  
+  .about_top_left_content h4 {
+    line-height: 30px;
+    padding-top: 15px;
+    font-weight: 400;
+  }
+  
+  .about_top_left_content p {
+    padding-top: 10px;
+  }
+  
+  #about_progressbar {
+    background: #f6f6f6;
+  }
+  
+  .about_progressbar_content p {
+    padding-top: 20px;
+  }
+  
+  .skill-progressbar {
+    margin-bottom: 35px;
+  }
+  
+  .skill-progressbar:last-child {
+    margin-bottom: 0;
+  }
+  
+  .service_promo_single_item {
+    text-align: center;
+    box-shadow: 0px 0px 6px 1px #0000001c;
+    padding: 25px 10px;
+    height: 100%;
+  }
+  
+  .service_prom_content {
+    padding-top: 10px;
+  }
+  
+  .service_prom_content p {
+    padding-top: 10px;
+  }
+  

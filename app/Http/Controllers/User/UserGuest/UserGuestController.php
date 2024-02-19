@@ -22,5 +22,9 @@ class UserGuestController extends Controller
     {
         return Inertia::render('user/pages/shop/Shop');
     }
+    public function about()
+    {
+        return Inertia::render('user/pages/aboutUs/AboutUs');
+    }
 
 }

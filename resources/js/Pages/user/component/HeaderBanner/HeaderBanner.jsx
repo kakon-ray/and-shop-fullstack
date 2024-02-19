@@ -4,7 +4,7 @@ import banner1 from "../../../../../../public/assets/img/banner_3.71b74319.jpg";
 import banner2 from "../../../../../../public/assets/img/man.422a052d.png";
 
 
-const PageBanner = () => {
+const HeaderBanner = () => {
   return (
     <div
       id="header-banner"
@@ -42,4 +42,4 @@ const PageBanner = () => {
   );
 };
 
-export default PageBanner;
+export default HeaderBanner;

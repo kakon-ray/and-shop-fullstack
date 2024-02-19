@@ -41,6 +41,16 @@ const HeaderNav = () => {
                 Shop
               </Link>
 
+              <Link href="/about" className="nav-link">
+                About Us
+              </Link>
+              <Link href="/shop" className="nav-link">
+                Blog
+              </Link>
+              <Link href="/shop" className="nav-link">
+                Contact
+              </Link>
+
             </Nav>
           </Navbar.Collapse>
           <div className="navbar-shop d-flex flex-nowrap aligen-item-center mb-0 pb-0">
