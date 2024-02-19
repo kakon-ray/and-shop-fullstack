@@ -6,7 +6,7 @@ import { Link } from '@inertiajs/react'
 import Swal from 'sweetalert2';
 import HeaderNav from '../../component/Navbar/HeaderNav';
 import TopNav from '../../component/Navbar/TopNav';
-import PageBanner from '../../component/PageBanner/PageBanner';
+import HeaderBanner from '../../component/HeaderBanner/HeaderBanner';
 import Footer from '../../component/Footer/Footer';
 import NewCollection from '../../component/NewCollection/NewCollection';
 import Product from '../../component/Product/Product';
@@ -23,7 +23,7 @@ const Home = () => {
         <>
             <TopNav />
             <HeaderNav />
-            <PageBanner />
+            <HeaderBanner />
             <NewCollection/>
             <Product/>
             <OffCollection/>

@@ -6,8 +6,8 @@ import { Link } from '@inertiajs/react'
 import Swal from 'sweetalert2';
 import HeaderNav from '../../component/Navbar/HeaderNav';
 import TopNav from '../../component/Navbar/TopNav';
-import PageBanner from '../../component/PageBanner/PageBanner';
 import Footer from '../../component/Footer/Footer';
+import PageBanner from '../../component/PageBanner/PageBanner';
 
 
 const Shop = () => {
@@ -16,6 +16,7 @@ const Shop = () => {
         <>
             <TopNav />
             <HeaderNav />
+            <PageBanner page="Shop"/>
             <div className="container">
                 <div className="row mt-2">
                     <div className="col-lg-12">
