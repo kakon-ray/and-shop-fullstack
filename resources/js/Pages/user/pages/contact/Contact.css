@@ -1,0 +1,67 @@
+
+/* -------------------------
+  Contact Page Area
+---------------------------*/
+
+.contact_info {
+    padding-bottom: 50px;
+  }
+  
+  .contact_info h3 {
+    padding-bottom: 15px;
+  }
+  
+  .left_side_contact ul li {
+    padding-bottom: 30px;
+  }
+
+  .left_side_contact ul li a{
+    text-decoration: none;
+    color: #0a0d14;
+  }
+
+  .left_side_contact ul li a:hover{
+    text-decoration: none;
+    color: #f79837;
+  }
+  
+  .left_side_contact .address_location {
+    display: flex;
+  }
+  
+  .address_location i {
+    padding-top: 5px;
+  }
+  
+  .left_side_contact .address_location p {
+    padding-left: 20px;
+    color: #0a0d14;
+  }
+  
+  .contact_widget a {
+    display: block;
+    padding-left: 20px;
+    padding-bottom: 10px;
+  }
+  
+  .contact_form_one form .form-group {
+    margin-bottom: 30px;
+  }
+  
+  .contact_form_one h3 {
+    padding-bottom: 30px;
+  }
+  
+  .map_area {
+    margin-top: 50px;
+  }
+  
+  .map_area iframe {
+    width: 100%;
+    border: none;
+    height: 450px;
+  }
+  
+  .btn-outline-warning:hover{
+        color: #fff !important;
+  }

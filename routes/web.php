@@ -10,6 +10,7 @@ Route::get('/', [UserGuestController::class, 'home'])->name('home');
 Route::get('/shop', [UserGuestController::class, 'shop'])->name('shop');
 Route::get('/about', [UserGuestController::class, 'about'])->name('about');
 Route::get('/blog', [UserGuestController::class, 'blog'])->name('blog');
+Route::get('/contact', [UserGuestController::class, 'contact'])->name('contact');
 
 Route::name('user.')->prefix('user')->group(function () {
     Route::middleware('auth','verified')->group(function () {

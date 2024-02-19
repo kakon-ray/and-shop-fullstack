@@ -30,5 +30,9 @@ class UserGuestController extends Controller
     {
         return Inertia::render('user/pages/blog/Blog');
     }
+    public function contact()
+    {
+        return Inertia::render('user/pages/contact/Contact');
+    }
 
 }
