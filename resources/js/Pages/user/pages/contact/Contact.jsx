@@ -25,15 +25,11 @@ const Shop = () => {
             <section id="contact_area" class="py-5">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="contact_info text-center" >
-                                <h3>Contact Information</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-lg-4">
                             <div class="left_side_contact">
+                                <div className="ps-5 ps-lg-5 py-5">
+                                    <h3>Contact Information</h3>
+                                </div>
                                 <ul>
                                     <li class="address_location">
                                         <i class="fas fa-map-marker-alt"></i>
