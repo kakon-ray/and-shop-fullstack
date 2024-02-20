@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import '../css/app.css'
+import { CartListProvider } from "../js/context/CartContext";
 
 createInertiaApp({
   resolve: name => {
@@ -13,9 +14,12 @@ createInertiaApp({
   setup({ el, App, props }) {
     createRoot(el).render(
       <Provider store={store}>
+        <CartListProvider>
           <App {...props} />
+        </CartListProvider>
+
       </Provider>
-  
+
     )
   },
 })

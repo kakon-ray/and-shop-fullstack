@@ -1,0 +1,47 @@
+#card-page {
+    font-family: "Poppins", sans-serif;
+  }
+  
+  td,
+  th {
+    border: 1px solid #959393;
+    text-align: center;
+    padding: 8px;
+  }
+  
+  #table-tr-bg th{
+    background-color: #f79837 !important;
+    border-bottom: none;
+    color: #fff;
+    text-align: center;
+  }
+
+  .table-body th{
+    border: 1px solid #959393;
+  }
+  .table-body td{
+    border: 1px solid #959393;
+  }
+  .cart-page table {
+    border-collapse: unset;
+  }
+  
+  .table-responsive {
+    overflow-x: auto;
+  }
+  
+  .cupon input {
+    border: 1px solid #ededed;
+    min-height: 38px;
+    background: none;
+    padding: 0 20px;
+    margin-right: 20px;
+    font-size: 12px;
+    color: #333;
+    width: 175px;
+  }
+  .cupon input:focus {
+    outline-color: #f79837;
+    outline-width: 0.5px;
+  }
+  

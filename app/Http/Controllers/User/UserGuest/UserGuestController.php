@@ -35,4 +35,5 @@ class UserGuestController extends Controller
         return Inertia::render('user/pages/contact/Contact');
     }
 
+
 }
