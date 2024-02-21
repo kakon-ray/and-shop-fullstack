@@ -15,6 +15,7 @@ import "./HeaderNav.css";
 import { Link } from '@inertiajs/react'
 import logo from "../../../../../../public/assets/img/logo.png";
 import OffCanvasSearch from "../OffCanvas/OffCanvasSearch/OffCanvasSearch";
+import OffCanvasCart from "../OffCanvas/OffCanvasCart/OffCanvasCart";
 
 const HeaderNav = () => {
 
@@ -24,12 +25,18 @@ const HeaderNav = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  // this hooks use Shoping cart show btn
+  const [showCart, setShowCart] = useState(false);
+
+  const handleClosCart = () => setShowCart(false);
+  const handleShowCart = () => setShowCart(true);
+
   return (
     <>
       <Navbar bg="light" expand="lg" className="sticky-top">
         <Container fluid>
           <Link href="/" className="navbar-brand">
-             <img src={logo} className="nav-logo" alt="logo" />
+            <img src={logo} className="nav-logo" alt="logo" />
           </Link>
 
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -72,10 +79,11 @@ const HeaderNav = () => {
             <Button
               variant=""
               className="navbar-icon  position-relative  pb-0 "
+              onClick={handleShowCart}
             >
               <FontAwesomeIcon icon={faShoppingBag} size="xl" />
               <span className="position-absolute top-5 start-99 translate-middle badge rounded-pill p-1">
-               5
+                5
                 <span className="visually-hidden">unread messages</span>
               </span>
             </Button>
@@ -92,6 +100,12 @@ const HeaderNav = () => {
       </Navbar>
 
       <OffCanvasSearch show={show} onHide={handleClose} placement={"start"} />
+
+      <OffCanvasCart
+        showCart={showCart}
+        onHideCart={handleClosCart}
+        placement={"end"}
+      />
 
     </>
   );
