@@ -60,7 +60,7 @@ const Cart = () => {
                                 (item) =>
                                     item && (
                                         <React.Fragment key={item?.id}>
-                                            <tr key={item.id} className="table-body">
+                                            <tr key={item.id} className="cart-table-body">
                                                 <th scope="row">
                                                     <FontAwesomeIcon
                                                         icon={faTrash}

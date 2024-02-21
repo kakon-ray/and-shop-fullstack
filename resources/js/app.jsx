@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 import '../css/app.css'
 import { CartListProvider } from "../js/context/CartContext";
+import { WishListProvider } from "../js/context/WishListContext";
 
 createInertiaApp({
   resolve: name => {
@@ -15,7 +16,9 @@ createInertiaApp({
     createRoot(el).render(
       <Provider store={store}>
         <CartListProvider>
-          <App {...props} />
+          <WishListProvider>
+            <App {...props} />
+          </WishListProvider>
         </CartListProvider>
 
       </Provider>

@@ -12,6 +12,7 @@ Route::get('/about', [UserGuestController::class, 'about'])->name('about');
 Route::get('/blog', [UserGuestController::class, 'blog'])->name('blog');
 Route::get('/contact', [UserGuestController::class, 'contact'])->name('contact');
 Route::get('/cart', [DashboardController::class, 'cart'])->name('cart');
+Route::get('/wishlist', [DashboardController::class, 'wishlist'])->name('wishlist');
 
 Route::name('user.')->prefix('user')->group(function () {
     Route::middleware('auth','verified')->group(function () {
