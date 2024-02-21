@@ -14,10 +14,15 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "./HeaderNav.css";
 import { Link } from '@inertiajs/react'
 import logo from "../../../../../../public/assets/img/logo.png";
+import OffCanvasSearch from "../OffCanvas/OffCanvasSearch/OffCanvasSearch";
 
 const HeaderNav = () => {
 
+  // this hooks use search btn show
+  const [show, setShow] = useState(false);
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <>
@@ -77,6 +82,7 @@ const HeaderNav = () => {
             <Button
               variant=""
               className="navbar-icon pb-0 "
+              onClick={handleShow}
             >
               <FontAwesomeIcon icon={faSearch} size="lg" />
             </Button>
@@ -84,6 +90,8 @@ const HeaderNav = () => {
           </div>
         </Container>
       </Navbar>
+
+      <OffCanvasSearch show={show} onHide={handleClose} placement={"start"} />
 
     </>
   );

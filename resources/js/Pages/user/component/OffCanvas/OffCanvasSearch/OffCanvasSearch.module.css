@@ -1,0 +1,32 @@
+/* this is search from style */
+
+.formControlOffcanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f8f9fa;
+    border: 2px solid #000000;
+  
+    box-shadow: none !important;
+    font-size: 20px;
+    /* border-radius: 45px;
+    -webkit-border-radius: 45px;
+    -moz-border-radius: 45px;
+    -ms-border-radius: 45px;
+    -o-border-radius: 45px; */
+  }
+  .formControlOffcanvas:focus {
+    border: 2px solid #f79837;
+  }
+  
+  .offcanvaSearchBtn {
+    font-size: 20px;
+    border-radius: 50px;
+    width: 20%;
+    background-color: #f79837;
+  }
+  
