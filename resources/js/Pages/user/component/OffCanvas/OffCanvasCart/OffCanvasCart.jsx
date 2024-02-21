@@ -30,7 +30,7 @@ const OffCanvasCart = ({ onHideCart, placement, showCart }) => {
           )
         )}
         {cartList.length > 0 ? (
-          <Link to="/cart">
+          <Link href="/cart">
             <div className="text-center">
               <Button variant="outline-warning">View Cart</Button>
             </div>

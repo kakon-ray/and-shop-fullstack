@@ -16,6 +16,7 @@ import { Link } from '@inertiajs/react'
 import logo from "../../../../../../public/assets/img/logo.png";
 import OffCanvasSearch from "../OffCanvas/OffCanvasSearch/OffCanvasSearch";
 import OffCanvasCart from "../OffCanvas/OffCanvasCart/OffCanvasCart";
+import OffCanvasWishlist from "../OffCanvas/OffCanvasWishlist/OffCanvasWishlist";
 
 const HeaderNav = () => {
 
@@ -30,6 +31,13 @@ const HeaderNav = () => {
 
   const handleClosCart = () => setShowCart(false);
   const handleShowCart = () => setShowCart(true);
+
+
+  // this hooks use wishlist show btn
+  const [showWishList, setShowWishList] = useState(false);
+
+  const handleClosWishLIst = () => setShowWishList(false);
+  const handleShowWishList = () => setShowWishList(true);
 
   return (
     <>
@@ -69,6 +77,7 @@ const HeaderNav = () => {
             <Button
               variant=""
               className="navbar-icon   position-relative  pb-0 "
+              onClick={handleShowWishList}
             >
               <FontAwesomeIcon icon={faHeart} size="xl" />
               <span className="position-absolute  translate-middle badge rounded-pill p-1">
@@ -107,6 +116,11 @@ const HeaderNav = () => {
         placement={"end"}
       />
 
+      <OffCanvasWishlist
+        showWishList={showWishList}
+        handleClosWishLIst={handleClosWishLIst}
+        placement={"end"}
+      />
     </>
   );
 };

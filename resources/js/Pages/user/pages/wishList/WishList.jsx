@@ -5,6 +5,8 @@ import { WishListContext } from "../../../../context/WishListContext";
 import PageBanner from '../../component/PageBanner/PageBanner';
 import TopNav from "../../component/Navbar/TopNav";
 import HeaderNav from "../../component/Navbar/HeaderNav";
+import FollowUs from '../../component/FollowUs/FollowUs';
+import Footer from '../../component/Footer/Footer';
 
 const WishList = () => {
     const [wishList, setWishList] = useContext(WishListContext);
@@ -65,8 +67,8 @@ const WishList = () => {
                                                 <td>
                                                     <p className="mt-4">{item.price}</p>
                                                 </td>
-                                                <td style={{ width: "140px"}}>
-                                                    <div className="d-flex justify-content-center align-items-center" style={{width: "140px", height: "80px" }}>
+                                                <td style={{ width: "140px" }}>
+                                                    <div className="d-flex justify-content-center align-items-center" style={{ width: "140px", height: "80px" }}>
                                                         <button className="btn btn-outline-warning">
                                                             Add To Cart
                                                         </button>
@@ -85,6 +87,7 @@ const WishList = () => {
                     )}
                 </div>
             </div>
+            <Footer />
         </>
     );
 };

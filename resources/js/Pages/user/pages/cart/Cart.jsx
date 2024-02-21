@@ -8,6 +8,7 @@ import HeaderNav from '../../component/Navbar/HeaderNav';
 import TopNav from '../../component/Navbar/TopNav';
 
 import "./Cart.css";
+import Footer from "../../component/Footer/Footer";
 
 const Cart = () => {
     const [cartList, setCartList] = useContext(CartContext);
@@ -188,6 +189,8 @@ const Cart = () => {
                     </div>
                 </div>
             </div>
+
+            <Footer />
         </>
     );
 };
