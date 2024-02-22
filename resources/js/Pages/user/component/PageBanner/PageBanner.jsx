@@ -1,9 +1,9 @@
 import React from "react";
-
+import BannerImage from '../../../../../../public/common/common_bg.png'
 export default function PageBanner({ page }) {
   const myStyle = {
     backgroundImage:
-      "url('https://andshop-react.netlify.app/static/media/common_bg.7b040441.png')",
+      `url(${BannerImage})`,
     height: "40vh",
     fontSize: "50px",
     backgroundSize: "cover",
