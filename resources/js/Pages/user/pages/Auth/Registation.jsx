@@ -4,13 +4,18 @@ import { Link } from '@inertiajs/react'
 import SocialLogin from "./SocialLogin";
 import "./LoginRegister.css";
 import PageBanner from "../../component/PageBanner/PageBanner";
+import HeaderNav from '../../component/Navbar/HeaderNav';
+import TopNav from '../../component/Navbar/TopNav';
+import Footer from "../../component/Footer/Footer";
+
 
 export default function Registation() {
-  const navigation = useNavigate();
+
   return (
-    <div>
+    <>
+      <HeaderNav />
       <PageBanner page="Registation" />
-      <div className="form-responsive mx-auto">
+      <div className="form-responsive mx-auto pb-5">
         <Card className="mx-auto rounded-0">
           <h4 className="text-center pb-0 pt-3">Registation</h4>
           <Card.Body className="p-5 py-4">
@@ -49,7 +54,6 @@ export default function Registation() {
               </Form.Group>
 
               <Button
-                onClick={() => navigation("/dashboard")}
                 className="btn btn-warning w-100"
                 style={{ backgroundColor: "#f79837", color: "#fff" }}
                 type="submit"
@@ -60,13 +64,14 @@ export default function Registation() {
           </Card.Body>
           <p className="text-center">
             Already have a account?{" "}
-            <Link to="/login" style={{ textDecoration: "none" }}>
+            <Link href="/login" style={{ textDecoration: "none" }}>
               <span style={{ cursor: "pointer", color: "#f79837" }}>Login</span>
             </Link>
           </p>
         </Card>
         <SocialLogin />
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }

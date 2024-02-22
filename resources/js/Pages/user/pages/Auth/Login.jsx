@@ -37,20 +37,19 @@ export default function Login() {
                                 />
                             </Form.Group>
 
-                            <Link
-                                href="/dashboard"
+                            <Button
                                 className="btn btn-warning w-100"
                                 style={{ backgroundColor: "#f79837", color: "#fff" }}
                                 type="submit"
                             >
                                 Submit
-                            </Link>
+                            </Button>
                         </Form>
                     </Card.Body>
                     <p className="text-center">
                         Already have a account?{" "}
-                        <Link to="/registation" style={{ textDecoration: "none" }}>
-                            <span style={{ cursor: "pointer", color: "#f79837" }}>Login</span>
+                        <Link href="/register" style={{ textDecoration: "none" }}>
+                            <span style={{ cursor: "pointer", color: "#f79837" }}>Registation</span>
                         </Link>
                     </p>
                 </Card>
