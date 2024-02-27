@@ -10,13 +10,13 @@ const Footer = () => {
     24. Cookiebar
     ==========================*/
 
-    window.setTimeout(function () {
-        $(".cookie-bar").addClass('show')
-    }, 5000);
+    // window.setTimeout(function () {
+    //     $(".cookie-bar").addClass('show')
+    // }, 5000);
 
-    $('.cookie-bar .btn, .cookie-bar .btn-close').on('click', function () {
-        $(".cookie-bar").removeClass('show')
-    });
+    // $('.cookie-bar .btn, .cookie-bar .btn-close').on('click', function () {
+    //     $(".cookie-bar").removeClass('show')
+    // });
    
     return <>
         <footer id="footer_one">

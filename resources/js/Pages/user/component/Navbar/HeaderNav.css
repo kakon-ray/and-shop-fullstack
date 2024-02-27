@@ -18,16 +18,59 @@
   color: #f79837 !important;
 }
 
-.navbar .nav-link {
-  font-weight: bold;
-  font-size: 14px;
-  text-transform: uppercase;
-  margin-left: 2rem;
+
+
+/* active navbar */
+.nav-link-container{
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-left: 20px;
 }
 
 .navbar-light .navbar-nav .nav-link {
   color: #243549;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+
 }
+
+.navbar-light .navbar-nav .nav-link:after{
+  display: block;
+  content: "";
+  border-bottom: solid 2px #f79837;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+
+.navbar-light .navbar-nav .nav-link:hover:after {
+  transform: scaleX(1);
+  -webkit-transform: scaleX(1);
+  -moz-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  -o-transform: scaleX(1);
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+ color: #f79837;
+}
+
+.navbar-item-active:after{
+  transform: scaleX(1) !important;
+  -webkit-transform: scaleX(1) !important;
+  -moz-transform: scaleX(1) !important;
+  -ms-transform: scaleX(1) !important;
+  -o-transform: scaleX(1) !important;
+}
+
+.navbar-item-active{
+ color: #f79837 !important;
+ font-weight: 700;
+
+}
+
+/* active nav end */
 
 .navbar {
   background-color: #fef5ef !important;
@@ -80,11 +123,6 @@
 .dropdown-menu[data-bs-popper] {
   top: 177%;
   left: 0%;
-}
-
-.navbar .nav-link {
-  padding-bottom: 0;
-  margin-bottom: 0;
 }
 
 /* navbar bootstrap customize*/

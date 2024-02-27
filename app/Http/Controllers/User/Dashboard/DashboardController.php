@@ -8,9 +8,8 @@ use Inertia\Inertia;
 
 class DashboardController extends Controller
 {
-    public function dashboard(){
-        return view('user.dashboard.dashboard');
-    }
+
+    // user general auth page
 
     public function cart()
     {
@@ -19,5 +18,18 @@ class DashboardController extends Controller
     public function wishlist()
     {
         return Inertia::render('user/pages/wishList/WishList');
+    }
+
+
+
+    // User Dashboard Page
+
+    public function dashboard()
+    {
+        return Inertia::render('user/dashboard/Dashboard/Dashboard');
+    }
+    public function cartlist()
+    {
+        return Inertia::render('user/dashboard/CartList/CartList');
     }
 }

@@ -12,16 +12,18 @@ import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import "./HeaderNav.css";
-import { Link } from '@inertiajs/react'
+import { Link,usePage } from '@inertiajs/react'
 import logo from "../../../../../../public/assets/img/logo.png";
 import OffCanvasSearch from "../OffCanvas/OffCanvasSearch/OffCanvasSearch";
 import OffCanvasCart from "../OffCanvas/OffCanvasCart/OffCanvasCart";
 import OffCanvasWishlist from "../OffCanvas/OffCanvasWishlist/OffCanvasWishlist";
 
+
 const HeaderNav = () => {
 
   // this hooks use search btn show
   const [show, setShow] = useState(false);
+  const { url, component } = usePage()
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -50,24 +52,24 @@ const HeaderNav = () => {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
-              className=""
+              className="nav-link-container"
               style={{ maxHeight: "500px" }}
               navbarScroll
             >
-              <Link href="/" className="nav-link">
+              <Link href="/" className={`${url === '/' ? 'navbar-item-active' : ''} nav-link`}>
                 Home
               </Link>
-              <Link href="/shop" className="nav-link">
+              <Link href="/shop" className={`${url === '/shop' ? 'navbar-item-active' : ''} nav-link`}>
                 Shop
               </Link>
 
-              <Link href="/about" className="nav-link">
+              <Link href="/about" className={`${url === '/about' ? 'navbar-item-active' : ''} nav-link`}>
                 About Us
               </Link>
-              <Link href="/blog" className="nav-link">
+              <Link href="/blog" className={`${url === '/blog' ? 'navbar-item-active' : ''} nav-link`}>
                 Blog
               </Link>
-              <Link href="/contact" className="nav-link">
+              <Link href="/contact" className={`${url === '/contact' ? 'navbar-item-active' : ''} nav-link`}>
                 Contact
               </Link>
 
