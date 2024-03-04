@@ -42,7 +42,8 @@ const TopNav = () => {
                   </Link>
                 </li>
                 <li>
-                  <button
+                 <Link href="/dashboard">
+                 <button
                     className="mx-3 my-2 top-btn"
                     style={{
                       padding: "0",
@@ -53,8 +54,10 @@ const TopNav = () => {
                     <FontAwesomeIcon icon={faDashboard} className="me-1" />
                     Dashboard
                   </button>
+                 </Link>
                 </li>
                 <li>
+                <Link href="/profile">
                   <button
                     className="mx-3 my-2 "
                     style={{ padding: "0", border: "none", background: "none" }}
@@ -62,8 +65,10 @@ const TopNav = () => {
                     <FontAwesomeIcon icon={faUser} className="me-1" />
                     Profile
                   </button>
+                  </Link>
                 </li>
                 <li>
+                <Link href="/login">
                   <button
                     className="mx-3 my-2 "
                     style={{ padding: "0", border: "none", background: "none" }}
@@ -71,9 +76,11 @@ const TopNav = () => {
                     <FontAwesomeIcon icon={faSign} className="me-1" />
                     Login
                   </button>
+                  </Link>
                 </li>
 
                 <li>
+                <Link href="/register">
                   <button
                     className="mx-3 my-2 "
                     style={{ padding: "0", border: "none", background: "none" }}
@@ -81,6 +88,7 @@ const TopNav = () => {
                     <FontAwesomeIcon icon={faLock} className="me-1" />
                     Register
                   </button>
+                  </Link>
                 </li>
               </ul>
             </div>

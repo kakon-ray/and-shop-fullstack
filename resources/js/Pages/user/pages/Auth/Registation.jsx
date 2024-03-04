@@ -13,6 +13,7 @@ export default function Registation() {
 
   return (
     <>
+    <TopNav/>
       <HeaderNav />
       <PageBanner page="Registation" />
       <div className="form-responsive mx-auto pb-5">
