@@ -1,1 +1,1 @@
-## This Project Developer Laravel and React Js
+## This project is being developed using Laravel and React.
