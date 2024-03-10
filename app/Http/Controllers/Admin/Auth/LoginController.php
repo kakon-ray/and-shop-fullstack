@@ -7,11 +7,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
 use Illuminate\Support\Facades\Response;
+use Inertia\Inertia;
 
 class LoginController extends Controller
 {
     public function create(){
-        return view('admin.auth.login');
+        return Inertia::render('admin/pages/Auth/Login');
     }
     public function dashboard(){
         return view('admin.dashboard.dashboard');

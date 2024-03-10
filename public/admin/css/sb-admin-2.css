@@ -11295,3 +11295,14 @@ body.sidebar-toggled footer.sticky-footer {
   right: -4px !important;
   margin-top: 1px !important;
 }
+
+.sidebar .nav-item.dropdown .dropdown-toggle::after, .topbar .nav-item.dropdown .dropdown-toggle::after {
+    width: 0rem;
+    text-align: center;
+    float: right;
+    vertical-align: 0;
+    border: 0;
+    font-weight: 900;
+    content: '';
+    font-family: 'Font Awesome 5 Free';
+}
