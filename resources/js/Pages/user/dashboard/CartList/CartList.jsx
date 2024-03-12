@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 
-const DashboardPage = () => {
+const CartList = () => {
     const [cartList, setCartList] = useContext(CartContext);
 
     const removeItem = (id) => {
@@ -209,4 +209,4 @@ const DashboardPage = () => {
   );
 };
 
-export default DashboardPage;
+export default CartList;

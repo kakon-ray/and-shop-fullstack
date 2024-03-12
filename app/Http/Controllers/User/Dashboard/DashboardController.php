@@ -15,12 +15,6 @@ class DashboardController extends Controller
     {
         return Inertia::render('user/pages/cart/Cart');
     }
-    public function wishlist()
-    {
-        return Inertia::render('user/pages/wishList/WishList');
-    }
-
-
 
     // User Dashboard Page
 
@@ -32,4 +26,12 @@ class DashboardController extends Controller
     {
         return Inertia::render('user/dashboard/CartList/CartList');
     }
+
+    public function wishlist()
+    {
+        return Inertia::render('user/dashboard/WishList/WishList');
+        // return Inertia::render('user/pages/WishList/WishList');
+    }
+
+
 }

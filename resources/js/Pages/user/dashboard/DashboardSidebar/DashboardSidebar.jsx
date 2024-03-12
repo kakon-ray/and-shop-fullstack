@@ -41,24 +41,24 @@ const DashboardSidebar = () => {
       {/* collapsed props to change menu size using menucollapse state */}
       <ProSidebar collapsed={menuCollapse}>
         <SidebarContent>
-          <Link href="/dashboard" className="link-item">
+          <Link href="/user/dashboard" className="link-item">
             <Menu iconShape="square">
               <MenuItem active={true} icon={<FiHome />}>
                 Profile
               </MenuItem>
             </Menu>
           </Link>
-          <Link href="/cartlist" className="link-item">
+          <Link href="/user/cartlist" className="link-item">
             <Menu iconShape="square">
               <MenuItem icon={<FaList />}>My Cartlist</MenuItem>
             </Menu>
           </Link>
-          <Link to="/dashboard/wishlist" className="link-item">
+          <Link href="/user/wishlist" className="link-item">
             <Menu iconShape="square">
               <MenuItem icon={<FaRegHeart />}>WishList</MenuItem>
             </Menu>
           </Link>
-          <Link to="/dashboard/review" className="link-item">
+          <Link href="/dashboard/review" className="link-item">
             <Menu iconShape="square">
               <MenuItem icon={<RiPencilLine />}>Review And Shop</MenuItem>
             </Menu>
@@ -74,11 +74,11 @@ const DashboardSidebar = () => {
               <MenuItem icon={<BiCog />}>Sell On And Shop</MenuItem>
             </Menu>
           </Link>
-
+          <Link href="/logout" className="link-item">
           <Menu iconShape="square">
             <MenuItem icon={<FiLogOut />}>Logout</MenuItem>
           </Menu>
-
+          </Link>
         </SidebarContent>
 
       </ProSidebar>

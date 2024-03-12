@@ -46,7 +46,7 @@ const OffCanvasWishlist = ({ handleClosWishLIst, placement, showWishList }) => {
         )}
 
         {wishList.length > 0 ? (
-          <Link href="/wishlist">
+          <Link href="/user/wishlist">
             <div className="text-center">
               <Button variant="outline-warning">View Wishlist</Button>
             </div>

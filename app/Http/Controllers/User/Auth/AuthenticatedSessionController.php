@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Inertia\Inertia;
 
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
+
 class AuthenticatedSessionController extends Controller
 {
     /**
@@ -24,19 +28,20 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request){
+    public function store(LoginRequest $request)
+    {
+
         $request->validate([
             'email' => 'required',
             'password' => 'required',
         ]);
 
-        if(Auth::guard('web')->attempt(['email'=>$request->email,'password'=>$request->password])){
-            $arr = array('status'=>200,'msg'=>'Login Successed');
-            return \Response::json($arr);
-        }else{
-            $arr = array('status'=>400,'msg'=>'Login Faild');
-            return \Response::json($arr);
-            
+        if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password])) {
+            Session::flash('success', 'Login Successed');
+            return Redirect::back();
+        } else {
+            Session::flash('error', 'Login Faild');
+            return Redirect::back();
         }
     }
 

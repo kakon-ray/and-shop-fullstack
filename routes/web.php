@@ -13,15 +13,20 @@ Route::get('/about', [UserGuestController::class, 'about'])->name('about');
 Route::get('/blog', [UserGuestController::class, 'blog'])->name('blog');
 Route::get('/contact', [UserGuestController::class, 'contact'])->name('contact');
 Route::get('/cart', [DashboardController::class, 'cart'])->name('cart');
-Route::get('/wishlist', [DashboardController::class, 'wishlist'])->name('wishlist');
+
 
 
 // dashboard page
-Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
-Route::get('/cartlist', [DashboardController::class, 'cartlist'])->name('cartlist');
+
+
 
 Route::name('user.')->prefix('user')->group(function () {
-    Route::middleware('auth','verified')->group(function () {
+    Route::middleware('auth')->group(function () {
+        Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+        
+        Route::get('/wishlist', [DashboardController::class, 'wishlist'])->name('wishlist');
+        Route::get('/cartlist', [DashboardController::class, 'cartlist'])->name('cartlist');
+
     });
 });
 

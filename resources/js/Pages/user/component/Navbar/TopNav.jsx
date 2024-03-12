@@ -42,7 +42,7 @@ const TopNav = () => {
                   </Link>
                 </li>
                 <li>
-                 <Link href="/dashboard">
+                 <Link href="/user/dashboard">
                  <button
                     className="mx-3 my-2 top-btn"
                     style={{
@@ -57,7 +57,7 @@ const TopNav = () => {
                  </Link>
                 </li>
                 <li>
-                <Link href="/profile">
+                <Link href="/user/dashboard">
                   <button
                     className="mx-3 my-2 "
                     style={{ padding: "0", border: "none", background: "none" }}

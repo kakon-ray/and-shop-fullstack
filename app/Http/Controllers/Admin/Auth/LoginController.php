@@ -34,8 +34,8 @@ class LoginController extends Controller
             return Redirect::back();
         }else{
             // return back()->with('error','Invalid Username and Passsword');
-            $arr = array('status'=>400,'msg'=>'Login Faild');
-            return response()->json($arr);
+            Session::flash('error', 'Login Faild');
+            return Redirect::back();
             
         }
 

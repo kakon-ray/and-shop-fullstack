@@ -1,12 +1,15 @@
-import React, { useContext } from "react";
+
+import React, { useContext, useState } from "react";
+import DashboardSidebar from "../DashboardSidebar/DashboardSidebar";
+import "../../dashboard/Dashboard.css";
+import HeaderNav from '../../component/Navbar/HeaderNav';
+import TopNav from '../../component/Navbar/TopNav';
+import Footer from '../../component/Footer/Footer';
+import { Button, Card } from "react-bootstrap";
+import { WishListContext } from "../../../../context/WishListContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { WishListContext } from "../../../../context/WishListContext";
-import PageBanner from '../../component/PageBanner/PageBanner';
-import TopNav from "../../component/Navbar/TopNav";
-import HeaderNav from "../../component/Navbar/HeaderNav";
-import FollowUs from '../../component/FollowUs/FollowUs';
-import Footer from '../../component/Footer/Footer';
+
 
 const WishList = () => {
     const [wishList, setWishList] = useContext(WishListContext);
@@ -21,11 +24,20 @@ const WishList = () => {
         // console.log(removeThenCartItem);
     };
 
-    return (
-        <>
-            <TopNav />
-            <HeaderNav />
-            <PageBanner page="Wishlsit" />
+  return (
+    <>
+      <TopNav />
+      <HeaderNav />
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-md-3">
+            <div className="dashboard-lg-sidebar">
+              <DashboardSidebar />
+            </div>
+          </div>
+          <div className="col-md-9">
+            <h1 className="my-3 text-secondary">My Wish List</h1>
+
             <div className="my-5 container-fluid cart-page">
                 <div className="row table-responsive">
                     <table className="table">
@@ -87,9 +99,13 @@ const WishList = () => {
                     )}
                 </div>
             </div>
-            <Footer />
-        </>
-    );
+
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </>
+  );
 };
 
 export default WishList;
