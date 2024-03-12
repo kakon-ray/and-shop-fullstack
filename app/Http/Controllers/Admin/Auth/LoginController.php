@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Admin\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Session;
 use Illuminate\Support\Facades\Response;
 use Inertia\Inertia;
 
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 class LoginController extends Controller
 {
     public function create(){
@@ -19,19 +21,21 @@ class LoginController extends Controller
     }
 
     public function store(Request $request){
+
+        // dd($request->all());
         $request->validate([
             'email' => 'required',
             'password' => 'required',
         ]);
 
         if(Auth::guard('admin')->attempt(['email'=>$request->email,'password'=>$request->password])){
-            // return redirect('admin/dashboard');
-            $arr = array('status'=>200,'msg'=>'Login Successed');
-            return \Response::json($arr);
+            
+            Session::flash('success', 'Login Successed');
+            return Redirect::back();
         }else{
             // return back()->with('error','Invalid Username and Passsword');
             $arr = array('status'=>400,'msg'=>'Login Faild');
-            return \Response::json($arr);
+            return response()->json($arr);
             
         }
 

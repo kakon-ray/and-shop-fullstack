@@ -8,8 +8,8 @@ use App\Http\Controllers\Admin\Dashboard\DashboardController;
 
 Route::name('admin.')->prefix('admin')->group(function () {
 
-    Route::middleware(['AdminAuth','VerifiedAdminEmail'])->group(function (){
-        Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+    Route::middleware(['AdminAuth'])->group(function (){
+        Route::get('logout', [LoginController::class, 'logout'])->name('logout');
         Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
     });
 

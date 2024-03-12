@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link,usePage } from '@inertiajs/react'
 const Navbar = () => {
     return <div>
         <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -180,10 +180,10 @@ const Navbar = () => {
                             Activity Log
                         </a>
                         <div className="dropdown-divider"></div>
-                        <a className="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                        <Link className="dropdown-item" href="/admin/logout">
                             <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                             Logout
-                        </a>
+                        </Link>
                     </div>
                 </li>
 

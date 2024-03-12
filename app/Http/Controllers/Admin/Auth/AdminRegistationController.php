@@ -8,13 +8,15 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class AdminRegistationController extends Controller{
 
     public function create(){
-        return view('admin.auth.registation');
+      return Inertia::render('admin/pages/Auth/Registration');
     }
     public function store(Request $request){
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.Admin::class],

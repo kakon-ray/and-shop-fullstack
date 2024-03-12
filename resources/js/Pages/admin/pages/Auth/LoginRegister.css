@@ -1,6 +1,12 @@
 .form-responsive {
     width: 40%;
   }
+
+  .showpassword {
+    position: absolute;
+    top: 4px;
+    right: 9px;
+}
   
   .card {
     /* box-shadow: 20px 20px 50px 10px #f79837 inset; */

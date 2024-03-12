@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import Sidebar from '../../component/sidebar/Sidebar';
 import Navbar from '../../component/navbar/Navbar';
+import { Link,usePage } from '@inertiajs/react'
 
 const index = () => {
     // Toggle the side navigation
