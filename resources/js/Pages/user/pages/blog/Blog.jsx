@@ -40,7 +40,7 @@ const Shop = () => {
                             <div className="img-hover-zoom">
                                 <Card.Img
                                     variant="top"
-                                    src="https://andshop-react.netlify.app/static/media/post2.81cb9e34.png"
+                                    src="https://andshop-react.netlify.app/static/media/post3.a01f1b65.png"
                                 />
                             </div>
 

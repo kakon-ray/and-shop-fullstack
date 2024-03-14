@@ -13,7 +13,7 @@ const FollowUsCard = () => {
     <div className="col-md-3 mx-0 px-0">
       <div className="img-container">
         <img
-          src="https://andshop-react.netlify.app/static/media/post2.674c2953.png"
+          src="https://ninetheme.com/themes/anarkali/wp-content/uploads/2023/09/product2-19-450x600.jpg"
           alt="Avatar"
           className="image"
           style={{ width: "100%" }}
