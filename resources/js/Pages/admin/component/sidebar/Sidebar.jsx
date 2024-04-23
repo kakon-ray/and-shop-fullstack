@@ -30,7 +30,7 @@ const Sidebar = () => {
                 </a>
                 <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div className="bg-white py-2 collapse-inner rounded">
-                        <Link className="collapse-item" href="/admin/category/add">Manage Category</Link>
+                        <Link className="collapse-item" href="/admin/category/manage">Manage Category</Link>
                         <Link className="collapse-item" href="/admin/category/add">Add New Category</Link>
                     </div>
                 </div>
