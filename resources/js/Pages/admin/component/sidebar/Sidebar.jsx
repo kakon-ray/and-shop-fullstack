@@ -37,6 +37,21 @@ const Sidebar = () => {
             </li>
             <hr className="sidebar-divider my-0" />
 
+            <li className="nav-item">
+                <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3"
+                    aria-expanded="true" aria-controls="collapse3">
+                    <i className="fas fa-fw fa-cog"></i>
+                    <span>Sub Category</span>
+                </a>
+                <div id="collapse3" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div className="bg-white py-2 collapse-inner rounded">
+                        <Link className="collapse-item" href="/admin/subcategory/manage">Manage Sub Category</Link>
+                        <Link className="collapse-item" href="/admin/subcategory/add">Add sub Category</Link>
+                    </div>
+                </div>
+            </li>
+            <hr className="sidebar-divider my-0" />
+
             <div className="text-center d-none d-md-inline pt-4">
                 <button className="rounded-circle border-0" id="sidebarToggle"></button>
             </div>

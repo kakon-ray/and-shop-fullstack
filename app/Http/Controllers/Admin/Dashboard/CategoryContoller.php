@@ -163,5 +163,23 @@ class CategoryContoller extends Controller
             }
         }
     }
+
+
+    // start subcategory
+
+
+    public function manage_subcategory()
+    {
+        $categories = Category::all();
+        return Inertia::render('admin/pages/subcategory/ManageSubCategory',compact('categories'));
+    }
+    public function add_subcategory()
+    {
+        return Inertia::render('admin/pages/subcategory/AddSubCategory');
+    }
+    public function edit_subcategory(Request $request)
+    {   $subcategory = Category::find($request->id);
+        return Inertia::render('admin/pages/subcategory/EditSubCategory',compact('subcategory'));
+    }
 }
 

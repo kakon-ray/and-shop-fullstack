@@ -19,7 +19,16 @@ Route::middleware(['AdminAuth'])->group(function (){
             Route::get('edit/{id}', [CategoryContoller::class, 'edit_category'])->name('edit');
             Route::post('add-submit', [CategoryContoller::class, 'add_category_submit'])->name('add.submit');
             Route::post('edit-submit', [CategoryContoller::class, 'edit_category_submit'])->name('edit.submit');
-            Route::get('delete/{id}', [CategoryContoller::class, 'delete_category_submit'])->name('add.submit');
+            Route::get('delete/{id}', [CategoryContoller::class, 'delete_category_submit'])->name('delete.submit');
+        });
+
+        Route::name('subcategory.')->prefix('subcategory')->group(function () {
+            Route::get('manage', [CategoryContoller::class, 'manage_subcategory'])->name('manage');
+            Route::get('add', [CategoryContoller::class, 'add_subcategory'])->name('add');
+            Route::get('edit/{id}', [CategoryContoller::class, 'edit_subcategory'])->name('edit');
+            Route::post('add-submit', [CategoryContoller::class, 'add_subcategory_submit'])->name('add.submit');
+            Route::post('edit-submit', [CategoryContoller::class, 'edit_subcategory_submit'])->name('edit.submit');
+            Route::get('delete/{id}', [CategoryContoller::class, 'delete_subcategory_submit'])->name('delete.submit');
         });
     });
 
