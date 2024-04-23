@@ -6,8 +6,12 @@ import { Link, usePage } from '@inertiajs/react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useForm } from '@inertiajs/react'
-    
+import { postCategory } from '../../../../redux/action/CategoryAction';
+import { useDispatch } from 'react-redux';
+
 const  AddCategory = ({ success, error }) => {
+
+    const dispatch = useDispatch();
 
     const { data, setData, post, progress } = useForm({
         category_name: null,
@@ -29,9 +33,10 @@ const  AddCategory = ({ success, error }) => {
                 timer: 1500
             });
 
-            // setTimeout(function () {
-            //     location.reload();
-            // }, 1500);
+            dispatch(postCategory(data))
+            setTimeout(function () {
+               
+            }, 1000);
 
         } else if (error) {
             Swal.fire({

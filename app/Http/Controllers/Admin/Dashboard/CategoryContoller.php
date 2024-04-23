@@ -73,4 +73,42 @@ class CategoryContoller extends Controller
             }
         }
     }
+
+
+    public function delete_category_submit(Request $request)
+    {
+        $laptop = Category::find($request->id);
+
+        if (is_null($laptop)) {
+
+            return response()->json([
+                'msg' => "Do not find any Item",
+                'status' => 404
+            ], 404);
+        } else {
+
+            DB::beginTransaction();
+
+            try {
+
+                $laptop->delete();
+                DB::commit();
+
+                return response()->json([
+                    'status' => 200,
+                    'msg' => 'Delete this Laptop',
+                ], 200);
+            } catch (\Exception $err) {
+
+                DB::rollBack();
+
+                return response()->json([
+                    'msg' => "Internal Server Error",
+                    'status' => 500,
+                    'err_msg' => $err->getMessage()
+                ], 500);
+            }
+        }
+    }
 }
+

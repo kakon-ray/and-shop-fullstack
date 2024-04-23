@@ -1,0 +1,15 @@
+import { GET_CATEGORY, ADD_CATEGORY, DELETE_CATEGORY, UPDATE_CATEGORY } from "../ActionType"
+
+export const postCategory = (data) => {
+    return {
+        type: ADD_CATEGORY,
+        payload: data
+    }
+}
+export const getCategory = (data) => {
+    return {
+        type: GET_CATEGORY,
+        payload: data
+    }
+}
+

@@ -1,12 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import $ from 'jquery';
 import Sidebar from '../../component/sidebar/Sidebar';
 import Navbar from '../../component/navbar/Navbar';
 import { Link, usePage } from '@inertiajs/react'
 import Table from 'react-bootstrap/Table';
 import './Category.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCategory } from '../../../../redux/action/CategoryAction';
 
 const ManageCategory = ({ categories }) => {
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getCategory(categories))
+    }, []);
+
+    const allCategory = useSelector(
+        (state) => state.category.category
+    );
+
+
+
     // Toggle the side navigation
     $("#sidebarToggle, #sidebarToggleTop").on('click', function (e) {
         $("body").toggleClass("sidebar-toggled");
@@ -36,19 +51,19 @@ const ManageCategory = ({ categories }) => {
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            {categories?.map((item) => {
+                            {allCategory?.map((item) => {
                                 return (
                                     <React.Fragment key={item._id}>
                                         <tr>
                                             <td>{item.category_name}</td>
                                             <td>{item.category_slug}</td>
                                             <td>
-                                                <td class="th-sm text-center d-flex gap-2">
+                                                <td class="text-center d-flex gap-2">
                                                     <form method="POST" action="{{ route('admin.catagory.delete') }}" enctype="multipart/form-data">
 
-                                                        <input type="text" name="id" value="{{$item->id}}" class="d-none"/>
-                                                            <button type="submit" className="btn btn-danger rounded-circle btn-sm"><i
-                                                                class="fas fa-trash"></i></button>
+                                                        <input type="text" name="id" value={item.id} class="d-none" />
+                                                        <button type="submit" className="btn btn-danger rounded-circle btn-sm"><i
+                                                            class="fas fa-trash"></i></button>
                                                     </form>
                                                     <a href={`/admin/category/edit/${item.id}`} type="button"
                                                         className="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
