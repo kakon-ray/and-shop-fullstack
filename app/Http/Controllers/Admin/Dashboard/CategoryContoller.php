@@ -77,9 +77,10 @@ class CategoryContoller extends Controller
 
     public function delete_category_submit(Request $request)
     {
-        $laptop = Category::find($request->id);
 
-        if (is_null($laptop)) {
+        $category = Category::find($request->id);
+
+        if (is_null($category)) {
 
             return response()->json([
                 'msg' => "Do not find any Item",
@@ -91,12 +92,12 @@ class CategoryContoller extends Controller
 
             try {
 
-                $laptop->delete();
+                $category->delete();
                 DB::commit();
 
                 return response()->json([
                     'status' => 200,
-                    'msg' => 'Delete this Laptop',
+                    'msg' => 'Delete this Category',
                 ], 200);
             } catch (\Exception $err) {
 

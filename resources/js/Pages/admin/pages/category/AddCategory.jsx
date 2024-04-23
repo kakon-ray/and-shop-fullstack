@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import $ from 'jquery';
 import Sidebar from '../../component/sidebar/Sidebar';
 import Navbar from '../../component/navbar/Navbar';
-import { Link, usePage } from '@inertiajs/react'
+import { Link, router, usePage } from '@inertiajs/react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useForm } from '@inertiajs/react'
 import { postCategory } from '../../../../redux/action/CategoryAction';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const  AddCategory = ({ success, error }) => {
 
@@ -16,6 +16,7 @@ const  AddCategory = ({ success, error }) => {
     const { data, setData, post, progress } = useForm({
         category_name: null,
     })
+
 
     function submit(e) {
         e.preventDefault()
@@ -35,7 +36,7 @@ const  AddCategory = ({ success, error }) => {
 
             dispatch(postCategory(data))
             setTimeout(function () {
-               
+                router.visit('/admin/category/manage')
             }, 1000);
 
         } else if (error) {

@@ -11,5 +11,13 @@ export const getCategory = (data) => {
         type: GET_CATEGORY,
         payload: data
     }
+    
+}
+
+export const deleteCategory = (data) => {
+    return {
+        type: DELETE_CATEGORY,
+        payload: data
+    }
 }
 

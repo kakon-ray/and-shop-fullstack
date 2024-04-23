@@ -6,7 +6,8 @@ import { Link, usePage } from '@inertiajs/react'
 import Table from 'react-bootstrap/Table';
 import './Category.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCategory } from '../../../../redux/action/CategoryAction';
+import { deleteCategory, getCategory } from '../../../../redux/action/CategoryAction';
+import axios from 'axios';
 
 const ManageCategory = ({ categories }) => {
 
@@ -21,6 +22,15 @@ const ManageCategory = ({ categories }) => {
     );
 
 
+    // delete category
+    const deleteHandeler = (removeId) => {
+        axios.get(`/admin/category/delete/${removeId}`).then((response) => {
+            if (response.data.status == 200) {
+                dispatch(deleteCategory(removeId))
+            }
+        });
+
+    }
 
     // Toggle the side navigation
     $("#sidebarToggle, #sidebarToggleTop").on('click', function (e) {
@@ -59,12 +69,9 @@ const ManageCategory = ({ categories }) => {
                                             <td>{item.category_slug}</td>
                                             <td>
                                                 <td class="text-center d-flex gap-2">
-                                                    <form method="POST" action="{{ route('admin.catagory.delete') }}" enctype="multipart/form-data">
-
-                                                        <input type="text" name="id" value={item.id} class="d-none" />
-                                                        <button type="submit" className="btn btn-danger rounded-circle btn-sm"><i
+                                                   
+                                                <button type="submit" onClick={() => deleteHandeler(item.id)} className="btn btn-danger rounded-circle btn-sm"><i
                                                             class="fas fa-trash"></i></button>
-                                                    </form>
                                                     <a href={`/admin/category/edit/${item.id}`} type="button"
                                                         className="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
 
