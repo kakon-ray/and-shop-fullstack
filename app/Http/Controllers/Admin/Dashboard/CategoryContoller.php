@@ -24,9 +24,9 @@ class CategoryContoller extends Controller
     {
         return Inertia::render('admin/pages/category/AddCategory');
     }
-    public function edit_category()
-    {
-        return Inertia::render('admin/pages/category/EditCategory');
+    public function edit_category(Request $request)
+    {   $category = Category::find($request->id);
+        return Inertia::render('admin/pages/category/EditCategory',compact('category'));
     }
     public function add_category_submit(Request $request)
     {
@@ -70,6 +70,58 @@ class CategoryContoller extends Controller
             } else {
                 Session::flash('error', 'Internal Server Error');
                 return Redirect::back();
+            }
+        }
+    }
+    public function edit_category_submit(Request $request)
+    {
+        $category = Category::find($request->id);
+
+        if (is_null($category)) {
+            return response()->json([
+                'msg' => "Can Not Find any Laptop",
+                'status' => 404
+            ], 404);
+        } else {
+
+                $arrayRequest = [
+                    'category_name' => $request->category_name,
+                ];
+    
+                $arrayValidate  = [
+                    'category_name' => 'required',
+                ];
+
+
+            $response = Validator::make($arrayRequest, $arrayValidate);
+
+            if ($response->fails()) {
+                $msg = '';
+                foreach ($response->getMessageBag()->toArray() as $item) {
+                    $msg = $item;
+                };
+
+                Session::flash('error', $msg);
+                return Redirect::to('/');
+            } else {
+                DB::beginTransaction();
+
+                try {
+
+                    $category->category_name = $request->category_name;
+
+                    $category->save();
+                    DB::commit();
+                } catch (\Exception $err) {
+                    DB::rollBack();
+                    $category = null;
+                }
+
+                if (is_null($category)) {
+                    Session::flash('error', 'Internal Server Error');
+                } else {
+                    Session::flash('success', 'Updated Successfully');
+                }
             }
         }
     }

@@ -8,7 +8,8 @@ const initialState = {
 
 
 const CategoryReducer = (state = initialState, action) => {
- 
+    const updateCategory = state.category.filter(item => item.id != action.payload.id)
+
     switch (action.type) {
 
         case GET_CATEGORY:
@@ -34,7 +35,7 @@ const CategoryReducer = (state = initialState, action) => {
         case UPDATE_CATEGORY:
             return {
                 ...state,
-                product: [...updateProduct, action.payload]
+                category: [...updateCategory, action.payload]
 
             }
 

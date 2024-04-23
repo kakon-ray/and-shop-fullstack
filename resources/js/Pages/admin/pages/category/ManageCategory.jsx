@@ -27,6 +27,21 @@ const ManageCategory = ({ categories }) => {
         axios.get(`/admin/category/delete/${removeId}`).then((response) => {
             if (response.data.status == 200) {
                 dispatch(deleteCategory(removeId))
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Successfully Deleted",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }else{
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Faild",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             }
         });
 
@@ -70,10 +85,10 @@ const ManageCategory = ({ categories }) => {
                                             <td>
                                                 <td class="text-center d-flex gap-2">
                                                    
-                                                <button type="submit" onClick={() => deleteHandeler(item.id)} className="btn btn-danger rounded-circle btn-sm"><i
+                                                <button type="submit" onClick={() => deleteHandeler(item.id)} className="btn-danger rounded-circle btn-sm"><i
                                                             class="fas fa-trash"></i></button>
-                                                    <a href={`/admin/category/edit/${item.id}`} type="button"
-                                                        className="btn btn-info btn-circle btn-sm"><i class="fas fa-edit"></i></a>
+                                                    <Link href={`/admin/category/edit/${item.id}`} type="button"
+                                                        className="btn-info btn-circle btn-sm p-3"><i class="fas fa-edit" style={{fontSize:"16px"}}></i></Link>
 
                                                 </td>
                                             </td>

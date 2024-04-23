@@ -20,4 +20,10 @@ export const deleteCategory = (data) => {
         payload: data
     }
 }
+export const updateCategory = (data) => {
+    return {
+        type: UPDATE_CATEGORY,
+        payload: data
+    }
+}
 

@@ -2,12 +2,16 @@ import React, { useEffect } from 'react';
 import $ from 'jquery';
 import Sidebar from '../../component/sidebar/Sidebar';
 import Navbar from '../../component/navbar/Navbar';
-import { Link, usePage } from '@inertiajs/react'
+import { Link, router, usePage } from '@inertiajs/react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useForm } from '@inertiajs/react'
+import { updateCategory } from '../../../../redux/action/CategoryAction';
+import { useDispatch } from 'react-redux';
     
-const  EditCategory = ({ success, error }) => {
+const  EditCategory = ({ success, error, category }) => {
+
+    const dispatch = useDispatch();
 
     const { data, setData, post, progress } = useForm({
         category_name: null,
@@ -15,9 +19,14 @@ const  EditCategory = ({ success, error }) => {
 
     function submit(e) {
         e.preventDefault()
-        post('/admin/category/add-submit')
+        post('/admin/category/edit-submit')
 
     }
+
+    useEffect(() => {
+        setData(category);
+    }, [category]);
+
 
     useEffect(() => {
         if (success) {
@@ -29,9 +38,10 @@ const  EditCategory = ({ success, error }) => {
                 timer: 1500
             });
 
-            // setTimeout(function () {
-            //     location.reload();
-            // }, 1500);
+            dispatch(updateCategory(data))
+            setTimeout(function () {
+                router.visit('/admin/category/manage')
+            }, 1000);
 
         } else if (error) {
             Swal.fire({
@@ -46,6 +56,7 @@ const  EditCategory = ({ success, error }) => {
 
     }, [success, error]);
 
+   
     return <div id='page-top'>
         <div id="wrapper">
 

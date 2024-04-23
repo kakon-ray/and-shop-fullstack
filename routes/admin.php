@@ -18,6 +18,7 @@ Route::middleware(['AdminAuth'])->group(function (){
             Route::get('add', [CategoryContoller::class, 'add_category'])->name('add');
             Route::get('edit/{id}', [CategoryContoller::class, 'edit_category'])->name('edit');
             Route::post('add-submit', [CategoryContoller::class, 'add_category_submit'])->name('add.submit');
+            Route::post('edit-submit', [CategoryContoller::class, 'edit_category_submit'])->name('edit.submit');
             Route::get('delete/{id}', [CategoryContoller::class, 'delete_category_submit'])->name('add.submit');
         });
     });
