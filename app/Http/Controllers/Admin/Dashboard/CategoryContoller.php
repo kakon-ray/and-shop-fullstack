@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Dashboard;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Subcategory;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
@@ -170,16 +171,70 @@ class CategoryContoller extends Controller
 
     public function manage_subcategory()
     {
-        $categories = Category::all();
-        return Inertia::render('admin/pages/subcategory/ManageSubCategory',compact('categories'));
+        $subcategories = Subcategory::with('add_category')->get();
+        return Inertia::render('admin/pages/subcategory/ManageSubCategory',compact('subcategories'));
     }
     public function add_subcategory()
     {
-        return Inertia::render('admin/pages/subcategory/AddSubCategory');
+        $categories = Category::all();
+        return Inertia::render('admin/pages/subcategory/AddSubCategory',compact('categories'));
     }
     public function edit_subcategory(Request $request)
-    {   $subcategory = Category::find($request->id);
-        return Inertia::render('admin/pages/subcategory/EditSubCategory',compact('subcategory'));
+    {   $subcategory = Subcategory::find($request->id);
+        $categories = Category::all();
+        return Inertia::render('admin/pages/subcategory/EditSubCategory',compact('subcategory','categories'));
     }
+
+    public function add_subcategory_submit(Request $request)
+    {
+ 
+        $arrayRequest = [
+            'subcategory_name' => $request->subcategory_name,
+            'category_id' => $request->category_id,
+        ];
+
+        $arrayValidate  = [
+            'subcategory_name' => 'required',
+            'category_id' => 'required',
+        ];
+
+        $response = Validator::make($arrayRequest, $arrayValidate);
+
+        if ($response->fails()) {
+            $msg = '';
+            foreach ($response->getMessageBag()->toArray() as $item) {
+                $msg = $item;
+            };
+
+            Session::flash('error', $msg);
+            return Redirect::back();
+        } else {
+            DB::beginTransaction();
+
+            try {
+                $slug = str::slug($request->subcategory_name, '-');
+                $response = Subcategory::create([
+                    'subcategory_name' => $request->subcategory_name,
+                    'category_id' => $request->category_id,
+                    'subcat_slug' => $slug,
+                ]);
+
+                DB::commit();
+            } catch (\Exception $err) {
+                $response = null;
+            }
+
+            if ($response != null) {
+                Session::flash('success', 'Add New Category');
+                return Redirect::back();
+            } else {
+                Session::flash('error', 'Internal Server Error');
+                return Redirect::back();
+            }
+        }
+    }
+
+
+
 }
 

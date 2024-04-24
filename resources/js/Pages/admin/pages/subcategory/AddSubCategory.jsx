@@ -6,21 +6,23 @@ import { Link, router, usePage } from '@inertiajs/react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useForm } from '@inertiajs/react'
-import { postCategory } from '../../../../redux/action/CategoryAction';
+import { postSubCategory } from '../../../../redux/action/CategoryAction';
 import { useDispatch, useSelector } from 'react-redux';
 
-const  AddSubCategory = ({ success, error }) => {
+const AddSubCategory = ({ success, error, categories }) => {
 
     const dispatch = useDispatch();
 
+
     const { data, setData, post, progress } = useForm({
-        category_name: null,
+        subcategory_name: null,
+        category_id: null,
     })
 
 
     function submit(e) {
         e.preventDefault()
-        post('/admin/category/add-submit')
+        post('/admin/subcategory/add-submit')
 
     }
 
@@ -34,9 +36,9 @@ const  AddSubCategory = ({ success, error }) => {
                 timer: 1500
             });
 
-            dispatch(postCategory(data))
+            dispatch(postSubCategory(data))
             setTimeout(function () {
-                router.visit('/admin/category/manage')
+                router.visit('/admin/subcategory/manage')
             }, 1000);
 
         } else if (error) {
@@ -51,6 +53,8 @@ const  AddSubCategory = ({ success, error }) => {
         }
 
     }, [success, error]);
+
+  
 
     return <div id='page-top'>
         <div id="wrapper">
@@ -67,8 +71,18 @@ const  AddSubCategory = ({ success, error }) => {
                         <div className="card p-4">
                             <Form onSubmit={submit}>
                                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                                    <Form.Label>Category Name</Form.Label>
-                                    <input type="text" value={data.category_name} onChange={e => setData('category_name', e.target.value)} className="form-control" name="category_name" placeholder="Add New Category" />
+                                    <Form.Label>Subcategory Name</Form.Label>
+                                    <input type="text" onChange={e => setData('subcategory_name', e.target.value)} className="form-control" name="subcategory_name" placeholder="Add New subcategory" />
+                                </Form.Group>
+
+                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                    <select class="form-select" name="category_id" onChange={e => setData('category_id', e.target.value)}>
+                                        <option selected>Open this select menu</option>
+                                        {categories.map(function (item) {
+                                          return <option key={item.id} value={item.id}>{item.category_name}</option>
+                                        })}
+                                        
+                                    </select>
                                 </Form.Group>
 
                                 <Button variant="primary" type="submit">

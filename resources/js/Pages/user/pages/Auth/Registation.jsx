@@ -92,8 +92,8 @@ export default function Registation() {
                   placeholder="Enter Password"
                   className="rounded-0"
                 />
-                <span class="flex justify-around items-center showpassword" onClick={handleToggle}>
-                  <Icon class="absolute mr-10" icon={icon} size={25} />
+                <span className="flex justify-around items-center showpassword" onClick={handleToggle}>
+                  <Icon className="absolute mr-10" icon={icon} size={25} />
                 </span>
               </Form.Group>
               <Form.Group className="mb-3 position-relative" controlId="formBasicPassword">

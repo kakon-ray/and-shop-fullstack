@@ -6,20 +6,21 @@ import { Link, usePage } from '@inertiajs/react'
 import Table from 'react-bootstrap/Table';
 import './Category.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteCategory, getCategory } from '../../../../redux/action/CategoryAction';
+import { deleteCategory, getCategory, getSubCategory } from '../../../../redux/action/CategoryAction';
 import axios from 'axios';
 
-const ManageSubCategory = ({ categories }) => {
+const ManageSubCategory = ({ subcategories }) => {
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getCategory(categories))
+        dispatch(getSubCategory(subcategories))
     }, []);
 
-    const allCategory = useSelector(
-        (state) => state.category.category
+    const allSubCategory = useSelector(
+        (state) => state.category.subcategory
     );
+
 
 
     // delete category
@@ -70,25 +71,29 @@ const ManageSubCategory = ({ categories }) => {
                     <div className="container-fluid">
                         <Table striped bordered hover>
                             <thead>
-                                <tr>
+                                <tr className='text-center'>
+                                    <th>Subcategory Name</th>
+                                    <th>Subcategory Slug</th>
                                     <th>Category Name</th>
                                     <th>Category Slug</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            {allCategory?.map((item) => {
+                            {allSubCategory?.map((item) => {
                                 return (
                                     <React.Fragment key={item._id}>
                                         <tr>
-                                            <td>{item.category_name}</td>
-                                            <td>{item.category_slug}</td>
+                                            <td>{item.subcategory_name}</td>
+                                            <td>{item.subcat_slug}</td>
+                                            <td>{item.add_category.category_name}</td>
+                                            <td>{item.add_category.category_slug}</td>
                                             <td>
-                                                <td class="text-center d-flex gap-2">
+                                                <td className="text-center d-flex gap-2">
                                                    
                                                 <button type="submit" onClick={() => deleteHandeler(item.id)} className="btn-danger rounded-circle btn-sm"><i
-                                                            class="fas fa-trash"></i></button>
+                                                            className="fas fa-trash"></i></button>
                                                     <Link href={`/admin/subcategory/edit/${item.id}`} type="button"
-                                                        className="btn-info btn-circle btn-sm p-3"><i class="fas fa-edit" style={{fontSize:"16px"}}></i></Link>
+                                                        className="btn-info btn-circle btn-sm p-3"><i className="fas fa-edit" style={{fontSize:"16px"}}></i></Link>
 
                                                 </td>
                                             </td>

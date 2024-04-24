@@ -7,14 +7,15 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useForm } from '@inertiajs/react'
 import { updateCategory } from '../../../../redux/action/CategoryAction';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
     
-const  EditSubCategory = ({ success, error, subcategory }) => {
+const  EditSubCategory = ({ success, error, subcategory,categories }) => {
 
     const dispatch = useDispatch();
 
     const { data, setData, post, progress } = useForm({
-        category_name: null,
+        subcategory_name: null,
+        category_id: null,
     })
 
     function submit(e) {
@@ -56,7 +57,7 @@ const  EditSubCategory = ({ success, error, subcategory }) => {
 
     }, [success, error]);
 
-   
+
     return <div id='page-top'>
         <div id="wrapper">
 
@@ -70,14 +71,24 @@ const  EditSubCategory = ({ success, error, subcategory }) => {
 
                     <div className="container-fluid">
                         <div className="card p-4">
-                            <Form onSubmit={submit}>
+                        <Form onSubmit={submit}>
                                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                                    <Form.Label>Sub Category Name</Form.Label>
-                                    <input type="text" value={data.category_name} onChange={e => setData('category_name', e.target.value)} className="form-control" name="category_name"/>
+                                    <Form.Label>Subcategory Name</Form.Label>
+                                    <input type="text" value={data.subcategory_name} onChange={e => setData('subcategory_name', e.target.value)} className="form-control" name="subcategory_name" />
+                                </Form.Group>
+
+                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                    <select class="form-select" value={data.category_id} name="category_id" onChange={e => setData('category_id', e.target.value)}>
+                                        <option selected>Open this select menu</option>
+                                        {categories.map(function (item) {
+                                          return <option key={item.id} value={item.id}>{item.category_name}</option>
+                                        })}
+                                        
+                                    </select>
                                 </Form.Group>
 
                                 <Button variant="primary" type="submit">
-                                    Update
+                                    Submit
                                 </Button>
                             </Form>
                         </div>

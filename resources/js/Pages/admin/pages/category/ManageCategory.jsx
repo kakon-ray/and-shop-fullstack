@@ -83,12 +83,12 @@ const ManageCategory = ({ categories }) => {
                                             <td>{item.category_name}</td>
                                             <td>{item.category_slug}</td>
                                             <td>
-                                                <td class="text-center d-flex gap-2">
+                                                <td className="text-center d-flex gap-2">
                                                    
                                                 <button type="submit" onClick={() => deleteHandeler(item.id)} className="btn-danger rounded-circle btn-sm"><i
-                                                            class="fas fa-trash"></i></button>
+                                                            className="fas fa-trash"></i></button>
                                                     <Link href={`/admin/category/edit/${item.id}`} type="button"
-                                                        className="btn-info btn-circle btn-sm p-3"><i class="fas fa-edit" style={{fontSize:"16px"}}></i></Link>
+                                                        className="btn-info btn-circle btn-sm p-3"><i className="fas fa-edit" style={{fontSize:"16px"}}></i></Link>
 
                                                 </td>
                                             </td>

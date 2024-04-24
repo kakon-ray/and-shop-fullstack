@@ -13,15 +13,15 @@ const AboutUs = () => {
         <HeaderNav />
         <PageBanner page="About Us" />
         <section id="about-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12">
-                        <div class="about_top_img">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-6 col-md-12 col-sm-12 col-12">
+                        <div className="about_top_img">
                             <img src={about} alt="img" />
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12">
-                        <div class="about_top_left_content">
+                    <div className="col-lg-6 col-md-12 col-sm-12 col-12">
+                        <div className="about_top_left_content">
                             <h2>ABOUT OUR Andshop STORE</h2>
                             <h4>We believe that every project existing in digital world is a result of an idea and every
                                 idea has a cause.</h4>
