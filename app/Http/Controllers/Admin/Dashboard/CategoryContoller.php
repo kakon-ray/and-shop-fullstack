@@ -108,8 +108,9 @@ class CategoryContoller extends Controller
                 DB::beginTransaction();
 
                 try {
-
+                    $slug = str::slug($request->category_name, '-');
                     $category->category_name = $request->category_name;
+                    $category->category_slug = $slug;
 
                     $category->save();
                     DB::commit();
@@ -234,7 +235,100 @@ class CategoryContoller extends Controller
         }
     }
 
+    public function edit_subcategory_submit(Request $request)
+    {
+        // dd($request->all());
+        $subcategory = Subcategory::find($request->id);
 
+        if (is_null($subcategory)) {
+            return response()->json([
+                'msg' => "Can Not Find any Subcategory",
+                'status' => 404
+            ], 404);
+        } else {
+
+                $arrayRequest = [
+                    'subcategory_name' => $request->subcategory_name,
+                    'category_id' => $request->category_id,
+                ];
+    
+                $arrayValidate  = [
+                    'subcategory_name' => 'required',
+                    'category_id' => 'required',
+                ];
+
+
+            $response = Validator::make($arrayRequest, $arrayValidate);
+
+            if ($response->fails()) {
+                $msg = '';
+                foreach ($response->getMessageBag()->toArray() as $item) {
+                    $msg = $item;
+                };
+
+                Session::flash('error', $msg);
+            
+            } else {
+                DB::beginTransaction();
+
+                try {
+                    $slug = str::slug($request->subcategory_name, '-');
+                    $subcategory->subcategory_name = $request->subcategory_name;
+                    $subcategory->subcat_slug = $slug;
+                    $subcategory->category_id = $request->category_id;
+
+                    $subcategory->save();
+                    DB::commit();
+                } catch (\Exception $err) {
+                    DB::rollBack();
+                    $subcategory = null;
+                }
+
+                if (is_null($subcategory)) {
+                    Session::flash('error', 'Internal Server Error');
+                } else {
+                    Session::flash('success', 'Updated Successfully');
+                }
+            }
+        }
+    }
+
+    public function delete_subcategory_submit(Request $request)
+    {
+
+        $subcategory = Subcategory::find($request->id);
+
+        if (is_null($subcategory)) {
+
+            return response()->json([
+                'msg' => "Do not find any Item",
+                'status' => 404
+            ], 404);
+        } else {
+
+            DB::beginTransaction();
+
+            try {
+
+                $subcategory->delete();
+                DB::commit();
+
+                return response()->json([
+                    'status' => 200,
+                    'msg' => 'Delete this Subcategory',
+                ], 200);
+            } catch (\Exception $err) {
+
+                DB::rollBack();
+
+                return response()->json([
+                    'msg' => "Internal Server Error",
+                    'status' => 500,
+                    'err_msg' => $err->getMessage()
+                ], 500);
+            }
+        }
+    }
 
 }
 

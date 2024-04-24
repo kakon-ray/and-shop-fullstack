@@ -6,7 +6,7 @@ import { Link, usePage } from '@inertiajs/react'
 import Table from 'react-bootstrap/Table';
 import './Category.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteCategory, getCategory, getSubCategory } from '../../../../redux/action/CategoryAction';
+import { deleteCategory, deleteSubCategory, getCategory, getSubCategory } from '../../../../redux/action/CategoryAction';
 import axios from 'axios';
 
 const ManageSubCategory = ({ subcategories }) => {
@@ -25,9 +25,9 @@ const ManageSubCategory = ({ subcategories }) => {
 
     // delete category
     const deleteHandeler = (removeId) => {
-        axios.get(`/admin/category/delete/${removeId}`).then((response) => {
+        axios.get(`/admin/subcategory/delete/${removeId}`).then((response) => {
             if (response.data.status == 200) {
-                dispatch(deleteCategory(removeId))
+                dispatch(deleteSubCategory(removeId))
                 Swal.fire({
                     position: "center",
                     icon: "success",
@@ -85,8 +85,8 @@ const ManageSubCategory = ({ subcategories }) => {
                                         <tr>
                                             <td>{item.subcategory_name}</td>
                                             <td>{item.subcat_slug}</td>
-                                            <td>{item.add_category.category_name}</td>
-                                            <td>{item.add_category.category_slug}</td>
+                                            <td>{item.add_category?.category_name}</td>
+                                            <td>{item.add_category?.category_slug}</td>
                                             <td>
                                                 <td className="text-center d-flex gap-2">
                                                    

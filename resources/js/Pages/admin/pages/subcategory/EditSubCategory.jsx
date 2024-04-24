@@ -6,10 +6,10 @@ import { Link, router, usePage } from '@inertiajs/react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useForm } from '@inertiajs/react'
-import { updateCategory } from '../../../../redux/action/CategoryAction';
+import { updateCategory, updateSubCategory } from '../../../../redux/action/CategoryAction';
 import { useDispatch, useSelector } from 'react-redux';
     
-const  EditSubCategory = ({ success, error, subcategory,categories }) => {
+const  EditSubCategory = ({ success, error, subcategory, categories }) => {
 
     const dispatch = useDispatch();
 
@@ -20,7 +20,7 @@ const  EditSubCategory = ({ success, error, subcategory,categories }) => {
 
     function submit(e) {
         e.preventDefault()
-        post('/admin/category/edit-submit')
+        post('/admin/subcategory/edit-submit')
 
     }
 
@@ -39,9 +39,9 @@ const  EditSubCategory = ({ success, error, subcategory,categories }) => {
                 timer: 1500
             });
 
-            dispatch(updateCategory(data))
+            dispatch(updateSubCategory(data))
             setTimeout(function () {
-                router.visit('/admin/category/manage')
+                router.visit('/admin/subcategory/manage')
             }, 1000);
 
         } else if (error) {
