@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link,usePage } from '@inertiajs/react'
+import { Link, usePage } from '@inertiajs/react'
 
 const Sidebar = () => {
     return <>
@@ -20,7 +20,7 @@ const Sidebar = () => {
                     <span>Dashboard</span></a>
             </li>
 
-
+            {/* category route */}
             <hr className="sidebar-divider my-0" />
             <li className="nav-item">
                 <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
@@ -37,6 +37,8 @@ const Sidebar = () => {
             </li>
             <hr className="sidebar-divider my-0" />
 
+
+            {/* subcategory route */}
             <li className="nav-item">
                 <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3"
                     aria-expanded="true" aria-controls="collapse3">
@@ -47,6 +49,22 @@ const Sidebar = () => {
                     <div className="bg-white py-2 collapse-inner rounded">
                         <Link className="collapse-item" href="/admin/subcategory/manage">Manage Subcategory</Link>
                         <Link className="collapse-item" href="/admin/subcategory/add">Add sub Category</Link>
+                    </div>
+                </div>
+            </li>
+            <hr className="sidebar-divider my-0" />
+
+            {/* Product Route */}
+            <li className="nav-item">
+                <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4"
+                    aria-expanded="true" aria-controls="collapse4">
+                    <i className="fas fa-fw fa-cog"></i>
+                    <span>Product</span>
+                </a>
+                <div id="collapse4" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div className="bg-white py-2 collapse-inner rounded">
+                        <Link className="collapse-item" href="/admin/product/manage">Manage Product</Link>
+                        <Link className="collapse-item" href="/admin/product/add">Add Product</Link>
                     </div>
                 </div>
             </li>

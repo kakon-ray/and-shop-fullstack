@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\ForgetController;
 use App\Http\Controllers\Admin\Dashboard\CategoryContoller;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
+use App\Http\Controllers\Admin\Dashboard\ProductController;
 
 Route::middleware(['AdminAuth'])->group(function (){
 
@@ -29,6 +30,16 @@ Route::middleware(['AdminAuth'])->group(function (){
             Route::post('add-submit', [CategoryContoller::class, 'add_subcategory_submit'])->name('add.submit');
             Route::post('edit-submit', [CategoryContoller::class, 'edit_subcategory_submit'])->name('edit.submit');
             Route::get('delete/{id}', [CategoryContoller::class, 'delete_subcategory_submit'])->name('delete.submit');
+        });
+
+
+        Route::name('product.')->prefix('product')->group(function () {
+            Route::get('manage', [ProductController::class, 'manage_product'])->name('manage');
+            Route::get('add', [ProductController::class, 'add_product'])->name('add');
+            Route::get('edit/{id}', [ProductController::class, 'edit_product'])->name('edit');
+            Route::post('add-submit', [ProductController::class, 'add_product_submit'])->name('add.submit');
+            Route::post('edit-submit', [ProductController::class, 'edit_product_submit'])->name('edit.submit');
+            Route::get('delete/{id}', [ProductController::class, 'delete_product_submit'])->name('delete.submit');
         });
     });
 
