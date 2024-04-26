@@ -8,6 +8,7 @@ import './Category.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteCategory, getCategory } from '../../../../redux/action/CategoryAction';
 import axios from 'axios';
+import useTggleSidebar from '../../../Hooks/useToggleSidebar';
 
 const ManageCategory = ({ categories }) => {
 
@@ -47,14 +48,7 @@ const ManageCategory = ({ categories }) => {
 
     }
 
-    // Toggle the side navigation
-    $("#sidebarToggle, #sidebarToggleTop").on('click', function (e) {
-        $("body").toggleClass("sidebar-toggled");
-        $(".sidebar").toggleClass("toggled");
-        if ($(".sidebar").hasClass("toggled")) {
-            $('.sidebar .collapse').collapse('hide');
-        };
-    });
+    useTggleSidebar();
 
     return <div id='page-top'>
         <div id="wrapper">

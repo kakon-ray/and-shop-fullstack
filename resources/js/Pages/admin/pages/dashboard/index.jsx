@@ -3,16 +3,11 @@ import $ from 'jquery';
 import Sidebar from '../../component/sidebar/Sidebar';
 import Navbar from '../../component/navbar/Navbar';
 import { Link,usePage } from '@inertiajs/react'
+import useTggleSidebar from '../../../Hooks/useToggleSidebar';
 
 const index = () => {
-    // Toggle the side navigation
-    $("#sidebarToggle, #sidebarToggleTop").on('click', function (e) {
-        $("body").toggleClass("sidebar-toggled");
-        $(".sidebar").toggleClass("toggled");
-        if ($(".sidebar").hasClass("toggled")) {
-            $('.sidebar .collapse').collapse('hide');
-        };
-    });
+    
+    useTggleSidebar();
 
     return <div id='page-top'>
         <div id="wrapper">

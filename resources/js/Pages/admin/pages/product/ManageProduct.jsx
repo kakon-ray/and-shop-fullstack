@@ -7,18 +7,54 @@ import Table from 'react-bootstrap/Table';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteCategory, getCategory } from '../../../../redux/action/CategoryAction';
 import axios from 'axios';
+import useTggleSidebar from '../../../Hooks/useToggleSidebar';
+import { deleteProduct, getProduct } from '../../../../redux/action/ProductAction';
 
-const ManageProduct = ({ product }) => {
+const ManageProduct = ({ product, success, error }) => {
+    const dispatch = useDispatch();
 
+    useEffect(() => {
+        dispatch(getProduct(product))
+    }, [product]);
 
-    // Toggle the side navigation
-    $("#sidebarToggle, #sidebarToggleTop").on('click', function (e) {
-        $("body").toggleClass("sidebar-toggled");
-        $(".sidebar").toggleClass("toggled");
-        if ($(".sidebar").hasClass("toggled")) {
-            $('.sidebar .collapse').collapse('hide');
-        };
+    const allproduct = useSelector(
+        (state) => state.product.product
+    );
+
+   // delete product
+   const deleteHandeler = (removeId) => {
+    axios.get(`/admin/product/delete/${removeId}`).then((response) => {
+    
+            if (success) {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: success,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+    
+                dispatch(deleteProduct(removeId))
+                
+    
+            } else if (error) {
+                Swal.fire({
+                    position: "center",
+                    icon: "error",
+                    title: error,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+    
+            }
+    
+
+        
     });
+
+}
+
+    useTggleSidebar();
 
     return <div id='page-top'>
         <div id="wrapper">
@@ -43,7 +79,7 @@ const ManageProduct = ({ product }) => {
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            {product?.map((item) => {
+                            {allproduct?.map((item) => {
                                 return (
                                     <React.Fragment key={item._id}>
                                         <tr>
@@ -61,6 +97,8 @@ const ManageProduct = ({ product }) => {
                                                             className="fas fa-trash"></i></button>
                                                     <Link href={`/admin/product/edit/${item.id}`} type="button"
                                                         className="btn-info btn-circle btn-sm p-3"><i className="fas fa-edit" style={{fontSize:"16px"}}></i></Link>
+                                                    <Link href={`/admin/product/details/${item.id}`} type="button"
+                                                        className="btn-info btn-circle btn-sm p-3"><i className="fa fa-info" style={{fontSize:"16px"}}></i></Link>
 
                                                 </td>
                                             </td>

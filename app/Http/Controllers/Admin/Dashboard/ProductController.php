@@ -27,9 +27,20 @@ class ProductController extends Controller
         $categories = Category::all();
         return Inertia::render('admin/pages/product/AddProduct',compact('categories','subcategory'));
     }
+
+
+
+    public function details_product(Request $request)
+    {   
+        $product = Product::where('id',$request->id)->with('category')->with('subcategory')->first();
+        return Inertia::render('admin/pages/product/ProductDetails',compact('product'));
+    }
     public function edit_product(Request $request)
-    {   $category = Category::find($request->id);
-        return Inertia::render('admin/pages/category/EditCategory',compact('category'));
+    {   
+         $subcategory = Subcategory::all();
+        $categories = Category::all();
+        $product = Product::where('id',$request->id)->with('category')->with('subcategory')->first();
+        return Inertia::render('admin/pages/product/EditProduct',compact('product','subcategory','categories'));
     }
     public function add_product_submit(Request $request)
     {
@@ -77,7 +88,9 @@ class ProductController extends Controller
         }
     }
     public function edit_product_submit(Request $request)
-    {
+    {  
+
+        dd($request->all());
         $category = Category::find($request->id);
 
         if (is_null($category)) {
@@ -134,36 +147,27 @@ class ProductController extends Controller
     public function delete_product_submit(Request $request)
     {
 
-        $category = Category::find($request->id);
+        $product = Product::find($request->id);
 
-        if (is_null($category)) {
+        if (is_null($product)) {
 
-            return response()->json([
-                'msg' => "Do not find any Item",
-                'status' => 404
-            ], 404);
+            Session::flash('error', 'Do Not Find any Item');
         } else {
 
             DB::beginTransaction();
 
             try {
 
-                $category->delete();
+                $product->delete();
                 DB::commit();
 
-                return response()->json([
-                    'status' => 200,
-                    'msg' => 'Delete this Category',
-                ], 200);
+                Session::flash('success', 'Delete This Item');
+
             } catch (\Exception $err) {
 
                 DB::rollBack();
 
-                return response()->json([
-                    'msg' => "Internal Server Error",
-                    'status' => 500,
-                    'err_msg' => $err->getMessage()
-                ], 500);
+                Session::flash('error', 'Internal Servererror');
             }
         }
     }

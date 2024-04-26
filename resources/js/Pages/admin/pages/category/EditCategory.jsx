@@ -8,8 +8,9 @@ import Form from 'react-bootstrap/Form';
 import { useForm } from '@inertiajs/react'
 import { updateCategory } from '../../../../redux/action/CategoryAction';
 import { useDispatch } from 'react-redux';
+import useTggleSidebar from '../../../Hooks/useToggleSidebar';
     
-const  EditCategory = ({ success, error, category }) => {
+const  EditCategory = ({ success, error, category, categories }) => {
 
     const dispatch = useDispatch();
 
@@ -57,6 +58,9 @@ const  EditCategory = ({ success, error, category }) => {
     }, [success, error]);
 
    
+    useTggleSidebar();
+
+    
     return <div id='page-top'>
         <div id="wrapper">
 

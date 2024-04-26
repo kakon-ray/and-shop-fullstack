@@ -36,6 +36,7 @@ Route::middleware(['AdminAuth'])->group(function (){
         Route::name('product.')->prefix('product')->group(function () {
             Route::get('manage', [ProductController::class, 'manage_product'])->name('manage');
             Route::get('add', [ProductController::class, 'add_product'])->name('add');
+            Route::get('details/{id}', [ProductController::class, 'details_product'])->name('details');
             Route::get('edit/{id}', [ProductController::class, 'edit_product'])->name('edit');
             Route::post('add-submit', [ProductController::class, 'add_product_submit'])->name('add.submit');
             Route::post('edit-submit', [ProductController::class, 'edit_product_submit'])->name('edit.submit');

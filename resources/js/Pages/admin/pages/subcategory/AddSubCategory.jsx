@@ -8,6 +8,7 @@ import Form from 'react-bootstrap/Form';
 import { useForm } from '@inertiajs/react'
 import { postSubCategory } from '../../../../redux/action/CategoryAction';
 import { useDispatch, useSelector } from 'react-redux';
+import useTggleSidebar from '../../../Hooks/useToggleSidebar';
 
 const AddSubCategory = ({ success, error, categories }) => {
 
@@ -54,7 +55,7 @@ const AddSubCategory = ({ success, error, categories }) => {
 
     }, [success, error]);
 
-  
+    useTggleSidebar();
 
     return <div id='page-top'>
         <div id="wrapper">
