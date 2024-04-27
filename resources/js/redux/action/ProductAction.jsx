@@ -14,7 +14,7 @@ export const getProduct = (data) => {
     }
 }
 export const deleteProduct = (data) => {
-    console.log(data)
+  
     return {
         type: DELETE_PORDUCT,
         payload: data

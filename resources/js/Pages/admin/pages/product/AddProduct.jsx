@@ -14,6 +14,8 @@ const AddCategory = ({ success, error, categories, subcategory }) => {
 
     const dispatch = useDispatch();
 
+    console.log(success,error)
+
     const { data, setData, post, progress } = useForm({
         category_id: null,
         subcategory_id: null,
@@ -25,16 +27,16 @@ const AddCategory = ({ success, error, categories, subcategory }) => {
         selling_price: null,
         discount_price: null,
         stock_quantity: null,
-        warehouse: null,
+        warehouse: null,    
         description: null,
         thumbnail: null,
-        images: null,
+        images: [],
     })
 
 
     function submit(e) {
         e.preventDefault()
-        post('/admin/category/add-submit')
+        post('/admin/product/add-submit')
 
     }
 
@@ -50,7 +52,7 @@ const AddCategory = ({ success, error, categories, subcategory }) => {
 
             dispatch(postCategory(data))
             setTimeout(function () {
-                router.visit('/admin/category/manage')
+                router.visit('/admin/product/manage')
             }, 1000);
 
         } else if (error) {
@@ -67,6 +69,7 @@ const AddCategory = ({ success, error, categories, subcategory }) => {
     }, [success, error]);
 
     useTggleSidebar();
+
 
     return <div id='page-top'>
         <div id="wrapper">
@@ -94,7 +97,7 @@ const AddCategory = ({ success, error, categories, subcategory }) => {
                                     <div className="col-lg-6">
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
                                             <Form.Label>Select Category</Form.Label>
-                                            <select class="form-select" name="subcategory_id" onChange={e => setData('subcategory_id', e.target.value)}>
+                                            <select class="form-select" name="category_id" onChange={e => setData('category_id', e.target.value)}>
                                                 <option selected>Open this select menu</option>
                                                 {categories.map(function (item) {
                                                     return <option key={item.id} value={item.id}>{item.category_name}</option>
@@ -106,10 +109,10 @@ const AddCategory = ({ success, error, categories, subcategory }) => {
                                     <div className="col-lg-6">
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
                                             <Form.Label>Select Subcategory</Form.Label>
-                                            <select class="form-select" name="category_id" onChange={e => setData('category_id', e.target.value)}>
+                                            <select class="form-select" name="subcategory_id" onChange={e => setData('subcategory_id', e.target.value)}>
                                                 <option selected>Open this select menu</option>
                                                 {subcategory.map(function (item) {
-                                                    return <option key={item.id} value={item.id}>{item.category_name}</option>
+                                                    return <option key={item.id} value={item.id}>{item.subcategory_name}</option>
                                                 })}
 
                                             </select>
@@ -173,13 +176,13 @@ const AddCategory = ({ success, error, categories, subcategory }) => {
                                     <div className="col-lg-6">
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
                                             <Form.Label>Thumbnail</Form.Label>
-                                            <input type="file" value={data.warehouse} onChange={e => setData('thumbnail', e.target.value)} className="form-control" name="thumbnail" placeholder="Thumbnail" />
+                                            <input type="file" onChange={e => setData('thumbnail', e.target.files[0])} className="form-control" name="thumbnail" placeholder="Thumbnail" />
                                         </Form.Group>
                                     </div>
                                     <div className="col-lg-6">
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
                                             <Form.Label>Images</Form.Label>
-                                            <input type="file" value={data.images} onChange={e => setData('images', e.target.value)} className="form-control" name="images" placeholder="Images" />
+                                            <input type="file" onChange={e => setData('images', [...data.images,e.target.files[0]])} className="form-control" name="images" placeholder="Images" />
                                         </Form.Group>
                                     </div>
                         

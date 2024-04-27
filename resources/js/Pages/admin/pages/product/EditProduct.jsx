@@ -14,21 +14,22 @@ const EditProduct = ({ success, error, product, subcategory, categories }) => {
 
     const dispatch = useDispatch();
 
-    const { data, setData, post, progress } = useForm({
-        category_id: null,
-        subcategory_id: null,
-        name: null,
-        code: null,
-        unit: null,
-        tags: null,
-        purchase_price: null,
-        selling_price: null,
-        discount_price: null,
-        stock_quantity: null,
-        warehouse: null,
-        description: null,
-        thumbnail: null,
-        images: null,
+     const { data, setData, post, progress } = useForm({
+        category_id: product.category_id,
+        subcategory_id: product.subcategory_id,
+        name: product.name,
+        code: product.code,
+        unit: product.unit,
+        tags: product.tags,
+        purchase_price: product.purchase_price,
+        selling_price: product.selling_price,
+        discount_price: product.discount_price,
+        stock_quantity: product.stock_quantity,
+        warehouse: product.warehouse,    
+        description: product.description,
+        thumbnail: product.thumbnail,
+        images: product.images,
+        id: product.id,
     })
 
 
@@ -39,7 +40,7 @@ const EditProduct = ({ success, error, product, subcategory, categories }) => {
     }
 
     useEffect(() => {
-        setData(product)
+        // setData(product)
   
     }, [product]);
 
@@ -58,7 +59,7 @@ const EditProduct = ({ success, error, product, subcategory, categories }) => {
 
             dispatch(postCategory(data))
             setTimeout(function () {
-                router.visit('/admin/category/manage')
+                router.visit('/admin/product/manage')
             }, 1000);
 
         } else if (error) {
@@ -96,7 +97,7 @@ const EditProduct = ({ success, error, product, subcategory, categories }) => {
                                     <div className="col-lg-12">
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
                                             <Form.Label>Product Name</Form.Label>
-                                            <input type="text" value={data.name?data.name:''} onChange={e => setData('name', e.target.value)} className="form-control" name="category_name" placeholder="Product Name" />
+                                            <input type="text" defaultValue={product.name?product.name:''} onChange={e => setData('name', e.target.value)} className="form-control" name="category_name" placeholder="Product Name" />
                                         </Form.Group>
                                     </div>
                        
@@ -106,7 +107,7 @@ const EditProduct = ({ success, error, product, subcategory, categories }) => {
                                             <select class="form-select" name="subcategory_id" onChange={e => setData('subcategory_id', e.target.value)}>
                                                 <option selected>Open this select menu</option>
                                                 {categories.map(function (item) {
-                                                    return <option key={item.id} value={item.id}>{item.category_name}</option>
+                                                    return <option key={item.id} defaultValue={item.id}>{item.category_name}</option>
                                                 })}
 
                                             </select>
@@ -118,7 +119,7 @@ const EditProduct = ({ success, error, product, subcategory, categories }) => {
                                             <select class="form-select" name="category_id" onChange={e => setData('category_id', e.target.value)}>
                                                 <option selected>Open this select menu</option>
                                                 {subcategory.map(function (item) {
-                                                    return <option key={item.id} value={item.id}>{item.category_name}</option>
+                                                    return <option key={item.id} defaultValue={item.id}>{item.subcategory_name}</option>
                                                 })}
 
                                             </select>
@@ -128,67 +129,67 @@ const EditProduct = ({ success, error, product, subcategory, categories }) => {
                                     <div className="col-lg-4">
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
                                             <Form.Label>Product Code</Form.Label>
-                                            <input type="text" value={data.code?data.code:''} onChange={e => setData('code', e.target.value)} className="form-control" name="code" placeholder="Product Code" />
+                                            <input type="text" defaultValue={product.code?product.code:''} onChange={e => setData('code', e.target.value)} className="form-control" name="code" placeholder="Product Code" />
                                         </Form.Group>
                                     </div>
                                     <div className="col-lg-4">
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
                                             <Form.Label>Product Unit</Form.Label>
-                                            <input type="text" value={data.unit?data.unit:''} onChange={e => setData('unit', e.target.value)} className="form-control" name="unit" placeholder="Product Unit" />
+                                            <input type="text" defaultValue={product.unit?product.unit:''} onChange={e => setData('unit', e.target.value)} className="form-control" name="unit" placeholder="Product Unit" />
                                         </Form.Group>
                                     </div>
                                     <div className="col-lg-4">
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
                                             <Form.Label>Product Tages</Form.Label>
-                                            <input type="text" value={data.tags?data.tags:''} onChange={e => setData('tags', e.target.value)} className="form-control" name="tags" placeholder="Product Tags" />
+                                            <input type="text" defaultValue={product.tags?product.tags:''} onChange={e => setData('tags', e.target.value)} className="form-control" name="tags" placeholder="Product Tags" />
                                         </Form.Group>
                                     </div>
                                     <div className="col-lg-4">
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
                                             <Form.Label>Purchase Price</Form.Label>
-                                            <input type="text" value={data.purchase_price?data.purchase_price:''} onChange={e => setData('purchase_price', e.target.value)} className="form-control" name="purchase_price" placeholder="Purchase Price" />
+                                            <input type="text" defaultValue={product.purchase_price?product.purchase_price:''} onChange={e => setData('purchase_price', e.target.value)} className="form-control" name="purchase_price" placeholder="Purchase Price" />
                                         </Form.Group>
                                     </div>
                                     <div className="col-lg-4">
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
                                             <Form.Label>Selling Price</Form.Label>
-                                            <input type="text" value={data.selling_price?data.selling_price:''} onChange={e => setData('selling_price', e.target.value)} className="form-control" name="selling_price" placeholder="Selling Price" />
+                                            <input type="text" defaultValue={product.selling_price?product.selling_price:''} onChange={e => setData('selling_price', e.target.value)} className="form-control" name="selling_price" placeholder="Selling Price" />
                                         </Form.Group>
                                     </div>
                                     <div className="col-lg-4">
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
                                             <Form.Label>Discount Price</Form.Label>
-                                            <input type="text" value={data.discount_price?data.discount_price:''} onChange={e => setData('discount_price', e.target.value)} className="form-control" name="discount_price" placeholder="Discount Price" />
+                                            <input type="text" defaultValue={product.discount_price?product.discount_price:''} onChange={e => setData('discount_price', e.target.value)} className="form-control" name="discount_price" placeholder="Discount Price" />
                                         </Form.Group>
                                     </div>
                                     <div className="col-lg-6">
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
                                             <Form.Label>Stock Quantity</Form.Label>
-                                            <input type="text" value={data.stock_quantity?data.stock_quantity:''} onChange={e => setData('stock_quantity', e.target.value)} className="form-control" name="stock_quantity" placeholder="Discount Price" />
+                                            <input type="text" defaultValue={product.stock_quantity?product.stock_quantity:''} onChange={e => setData('stock_quantity', e.target.value)} className="form-control" name="stock_quantity" placeholder="Discount Price" />
                                         </Form.Group>
                                     </div>
                                     <div className="col-lg-6">
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
                                             <Form.Label>Warehouse</Form.Label>
-                                            <input type="text" value={data.warehouse?data.warehouse:''} onChange={e => setData('warehouse', e.target.value)} className="form-control" name="warehouse" placeholder="Warehouse" />
+                                            <input type="text" defaultValue={product.warehouse?product.warehouse:''} onChange={e => setData('warehouse', e.target.value)} className="form-control" name="warehouse" placeholder="Warehouse" />
                                         </Form.Group>
                                     </div>
                                     <div className="col-lg-12">
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
                                             <Form.Label>Description</Form.Label>
-                                            <textarea type="text" value={data.description?data.description:''} onChange={e => setData('description', e.target.value)} className="form-control" name="description" placeholder="Description" />
+                                            <textarea type="text" defaultValue={product.description?product.description:''} onChange={e => setData('description', e.target.value)} className="form-control" name="description" placeholder="Description" />
                                         </Form.Group>
                                     </div>
                                     <div className="col-lg-6">
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
                                             <Form.Label>Thumbnail</Form.Label>
-                                            <input type="file"  onChange={e => setData('thumbnail', e.target.value)} className="form-control" name="thumbnail" placeholder="Thumbnail" />
+                                            <input type="file"  onChange={e => setData('thumbnail', e.target.files[0])} className="form-control" name="thumbnail" placeholder="Thumbnail" />
                                         </Form.Group>
                                     </div>
                                     <div className="col-lg-6">
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
                                             <Form.Label>Images</Form.Label>
-                                            <input type="file" onChange={e => setData('images', e.target.value)} className="form-control" name="images" placeholder="Images" />
+                                            <input type="file" onChange={e => setData('images', [...data.images,e.target.files[0]])} className="form-control" name="images" placeholder="Images" />
                                         </Form.Group>
                                     </div>
 

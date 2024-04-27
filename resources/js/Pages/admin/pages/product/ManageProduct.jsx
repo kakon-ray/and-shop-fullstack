@@ -21,15 +21,16 @@ const ManageProduct = ({ product, success, error }) => {
         (state) => state.product.product
     );
 
+    console.log(success)
    // delete product
    const deleteHandeler = (removeId) => {
     axios.get(`/admin/product/delete/${removeId}`).then((response) => {
     
-            if (success) {
+        if (response.data.status == 200) {
                 Swal.fire({
                     position: "center",
                     icon: "success",
-                    title: success,
+                    title: response.data.msg,
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -41,7 +42,7 @@ const ManageProduct = ({ product, success, error }) => {
                 Swal.fire({
                     position: "center",
                     icon: "error",
-                    title: error,
+                    title: response.data.msg,
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -84,7 +85,7 @@ const ManageProduct = ({ product, success, error }) => {
                                     <React.Fragment key={item._id}>
                                         <tr>
                                             <td>
-                                                <img src={item.images} className='img-fluid' style={{height:'100px'}} alt="" />
+                                                <img src={item.thumbnail} className='img-fluid' style={{height:'100px'}} alt="" />
                                             </td>
                                             <td>{item.name}</td>
                                             <td>{item.purchase_price}</td>

@@ -25,6 +25,7 @@ class Product extends Model
         'description',
         'thumbnail',
         'images',
+        'admin_id',
     ];
 
     public function category(){
